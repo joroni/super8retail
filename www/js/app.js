@@ -1,6 +1,17 @@
 $(document).ready(function () {
-    //plugin bootstrap minus and plus
-    //http://jsfiddle.net/laelitenetwork/puJ6G/
+
+
+
+    var backtoprev = $(".backtoprev"),
+    btnlogin =  $("#btnLogin"),
+    btnregister = $("#btnRegister");
+
+   
+    backtoprev.click(function(){
+       //window.location.href="login.html";
+       window.history.go(-1);
+    });
+
     $('.btn-number').click(function (e) {
         e.preventDefault();
 
@@ -74,12 +85,12 @@ $(document).ready(function () {
     });
 
 
-    $('#btnLogin').click(function () {
+    btnlogin.click(function () {
         //  e.preventDefault();
         window.location.href = "register.html";
     });
 
-    $('#btnRegister').click(function () {
+    btnregister.click(function () {
         //   e.preventDefault();
         window.location.href = "home-page.html";
     });
