@@ -34,6 +34,7 @@ main {
 }
 
 
+
 .cards.productsonsale  .btn-number {
     width: 25px;
     height: 25px;
@@ -67,6 +68,12 @@ main {
     text-overflow: ellipsis;
   }
 
+  .truncate-list {
+    width: 270px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .input-number{
     text-align: center;
