@@ -30,3 +30,7 @@ main {
 .cards{
     border: 1px solid #eee;
 }
+
+.input-number{
+    text-align: center;
+}
