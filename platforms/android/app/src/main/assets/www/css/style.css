@@ -15,6 +15,14 @@ main {
 }
 
 
+body.storegroup h5, body.storegroup .h5 {
+    font-size: 1rem;
+}
+
+body.storegroup p {
+    font-size: 0.8rem;
+}
+
 
 .no-gutter {
     margin: 0 !important;
