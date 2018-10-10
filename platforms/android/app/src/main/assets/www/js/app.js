@@ -3,13 +3,29 @@ $(document).ready(function () {
 
 
     var backtoprev = $(".backtoprev"),
-    btnlogin =  $("#btnLogin"),
-    btnregister = $("#btnRegister");
+        btnlogin = $("#btnLogin"),
+        btnregister = $("#btnRegister");
 
-   
-    backtoprev.click(function(){
-       //window.location.href="login.html";
-       window.history.go(-1);
+
+    function showQuantity() {
+        
+        $('.quantity').each(function(){
+
+            if ( $(this).val() == 0)
+            {
+                $(this).hide();
+            }else{
+                $(this).show();
+            }
+        });
+
+     
+    }
+
+   // showQuantity();
+    backtoprev.click(function () {
+        //window.location.href="login.html";
+        window.history.go(-1);
     });
 
     $('.btn-number').click(function (e) {
