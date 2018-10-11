@@ -2,20 +2,22 @@
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: url(../fonts/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: url(../fonts/iconfont/MaterialIcons-Regular.eot);
+    /* For IE6-8 */
     src: local('Material Icons'),
-      local('MaterialIcons-Regular'),
-      url(../fonts/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
-      url(../fonts/iconfont/MaterialIcons-Regular.woff) format('woff'),
-      url(../fonts/iconfont/MaterialIcons-Regular.ttf) format('truetype');
-  }
+        local('MaterialIcons-Regular'),
+        url(../fonts/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+        url(../fonts/iconfont/MaterialIcons-Regular.woff) format('woff'),
+        url(../fonts/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
 
 
-  .material-icons {
+.material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
+    font-size: 24px;
+    /* Preferred icon size */
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -23,19 +25,20 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-  
+
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
     /* Support for Safari and Chrome. */
     text-rendering: optimizeLegibility;
-  
+
     /* Support for Firefox. */
     -moz-osx-font-smoothing: grayscale;
-  
+
     /* Support for IE. */
     font-feature-settings: 'liga';
-  }
-  .navbar-brand {
+}
+
+.navbar-brand {
     display: inline-block;
     padding-top: 0;
     position: relative;
@@ -64,11 +67,15 @@ main {
 }
 
 
-body.storegroup h5, body.customer-list h5, body.customer-list .h5, body.storegroup .h5 {
+body.storegroup h5,
+body.customer-list h5,
+body.customer-list .h5,
+body.storegroup .h5 {
     font-size: 1rem;
 }
 
-body.storegroup p, body.customer-list p {
+body.storegroup p,
+body.customer-list p {
     font-size: 0.8rem;
 }
 
@@ -77,22 +84,24 @@ body.storegroup p, body.customer-list p {
     margin: 0 !important;
     padding: 0 !important;
 }
-.cards.productsonsale{
-    border: 1px solid #eee;   
+
+.cards.productsonsale {
+    border: 1px solid #eee;
     height: 270px;
 }
 
-.cards.productsonsale .card-body{
+.cards.productsonsale .card-body {
     padding: 5px;
 }
 
-.cards.productsonsale .h4, .cards.productsonsale h4 {
+.cards.productsonsale .h4,
+.cards.productsonsale h4 {
     font-size: 1.0rem;
 }
 
 
 
-.cards.productsonsale  .btn-number {
+.cards.productsonsale .btn-number {
     width: 25px;
     height: 25px;
     text-align: center;
@@ -112,7 +121,8 @@ body.storegroup p, body.customer-list p {
     font-size: .5rem;
 }
 
-.cards.productsonsale .h5, .cards.productsonsale h5 {
+.cards.productsonsale .h5,
+.cards.productsonsale h5 {
     font-size: 1rem !important;
     font-weight: 400;
 }
@@ -123,21 +133,21 @@ body.storegroup p, body.customer-list p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
+}
 
-  .truncate-list {
+.truncate-list {
     width: 270px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.input-number{
+.input-number {
     text-align: center;
 }
 
 
-.cards.productsonsale  .card-img-top {
+.cards.productsonsale .card-img-top {
     height: 90px;
     width: auto;
     border-top-left-radius: calc(.25rem - 1px);
@@ -155,8 +165,8 @@ body.storegroup p, body.customer-list p {
 }
 
 .btn-floating {
-    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
-    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
     width: 47px;
     height: 47px;
     position: relative;
@@ -212,6 +222,7 @@ body.storegroup p, body.customer-list p {
     margin-right: auto;
     z-index: 0;
 }
+
 .fixed-action-btn ul a.btn-floating {
     opacity: 0;
     -webkit-transition-duration: .4s;
@@ -228,6 +239,7 @@ body.storegroup p, body.customer-list p {
     text-align: center;
     color: #fff;
 }
+
 .btn-floating i {
     font-size: 1.25rem;
     line-height: 47px;
@@ -255,7 +267,16 @@ body.storegroup p, body.customer-list p {
 
 
 .noshadow {
-  
+
     box-shadow: none !important;
-   
+
+}
+
+.closealamodal {
+    color: #ddd !important;
+    position: fixed !important;
+    left: 15px;
+    top: 15px;
+    
+
 }
