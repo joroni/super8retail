@@ -280,3 +280,16 @@ body.customer-list p {
     
 
 }
+
+
+
+.prod-page-image  {
+    height: 200px;
+    width: auto;
+}
+
+
+
+.centered  {
+    text-align: center !important;
+}
