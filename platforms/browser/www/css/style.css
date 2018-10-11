@@ -42,6 +42,7 @@
     padding-bottom: 0;
     margin-right: 1rem;
     top: 0.32rem;
+    left: -10px;
     font-size: 1.12rem !important;
     line-height: inherit;
 }
@@ -142,4 +143,106 @@ body.storegroup p, body.customer-list p {
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
     margin: 0 auto;
+}
+
+.fixed-action-btn {
+    position: fixed;
+    z-index: 998;
+    right: 35px;
+    bottom: 35px;
+    margin-bottom: 0;
+    padding-top: 15px;
+}
+
+.btn-floating {
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    width: 47px;
+    height: 47px;
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin: 10px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+}
+
+.btn-floating.btn-lg i {
+    font-size: 1.625rem;
+    line-height: 61.1px;
+}
+
+.fixed-action-btn ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-transition: .4s height;
+    -o-transition: .4s height;
+    transition: .4s height;
+    position: absolute;
+    bottom: 64px;
+    height: 64px;
+    left: 0;
+    right: 0;
+    margin: 0 0 15px;
+    padding: 0;
+    text-align: center;
+}
+
+.fixed-action-btn ul li {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 0;
+}
+.fixed-action-btn ul a.btn-floating {
+    opacity: 0;
+    -webkit-transition-duration: .4s;
+    -o-transition-duration: .4s;
+    transition-duration: .4s;
+    -webkit-transform: scale(.4) translate(0);
+    -ms-transform: scale(.4) translate(0);
+    transform: scale(.4) translate(0);
+}
+
+.btn-floating i {
+    display: inline-block;
+    width: inherit;
+    text-align: center;
+    color: #fff;
+}
+.btn-floating i {
+    font-size: 1.25rem;
+    line-height: 47px;
+}
+
+.btn-floating.btn-lg {
+    width: 61.1px;
+    height: 61.1px;
+}
+
+
+
+
+
+.card-profile {
+    margin-top: 30px;
+    text-align: center;
 }
