@@ -63,11 +63,11 @@ main {
 }
 
 
-body.storegroup h5, body.storegroup .h5 {
+body.storegroup h5, body.customer-list h5, body.customer-list .h5, body.storegroup .h5 {
     font-size: 1rem;
 }
 
-body.storegroup p {
+body.storegroup p, body.customer-list p {
     font-size: 0.8rem;
 }
 
