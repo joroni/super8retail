@@ -108,7 +108,7 @@ $(document).ready(function () {
 
     btnregister.click(function () {
         //   e.preventDefault();
-        window.location.href = "home-page.html";
+        window.location.href = "storefront.html";
     });
 
 
