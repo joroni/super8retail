@@ -74,7 +74,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 				content+= '			<h3>'+products[i].name+' <span class="price">$ '+products[i].price+' USD</span></h3>'
 				content+= '			<h3>We have: <span class="stock">'+products[i].stock+'</span></h3>'
 				content+= '		</span>'
-				content+= '		<a class="large-12 columns btn submit ladda-button prod-'+products[i].id+'" data-style="slide-right" onclick="app.addtoCart('+products[i].id+');">Añadir a la canasta</a>'
+				content+= '		<a class="large-12 columns btn submit ladda-button prod-'+products[i].id+'" data-style="slide-right" onclick="app.addtoCart('+products[i].id+');">Add to cart</a>'
 				content+= '		<div class="clearfix"></div>'
 				content+= '</div>'
 
@@ -161,10 +161,10 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 			   total = total  + (n.cant * n.price)
 			   items += '<tr>'
 			   //items += '<td><img src="'+n.img+'" /></td>'
+			   items += '<td><span class="qant">'+n.cant+'x </span></td>'
 			   items += '<td><h3 class="title">'+n.name+'</h3></td>'
-			   items += '<td><span class="price">'+n.cant+'x </td>'
-			   items +='<td>$ '+n.price+'</span></td>'
-			   items +='<td> <a class="add btn-circle" onclick="app.updateItem('+n.id+','+n.available+')"><i class="icon ion-minus-circled"></i></a> <a onclick="app.deleteProd('+n.id+')" ><i class="icon ion-close-circled"></i></a></td>'
+			   items +='<td><span class="price">$ '+n.price+'</span></td>'
+			   items +='<td> <a class="add btn-circled circled" onclick="app.updateItem('+n.id+','+n.available+')"><i class="icon ion-minus"></i></a> <a onclick="app.deleteProd('+n.id+')" class="circled" ><i class="icon ion-close "></i></a></td>'
 			   items += '</tr>'
 			});
 

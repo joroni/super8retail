@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>Material Design Bootstrap</title>
-      <!-- Font Awesome -->
-      <!-- Bootstrap core CSS -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-      <!-- Material Design Bootstrap -->
-      <link href="css/mdb.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="vendor/csstricks/assets/css/keyframes.css">
-      <link rel="stylesheet" href="vendor/csstricks/assets/css/pageTransitions.css">
-      <!-- Your custom styles (optional) -->
-      <link href="css/style.css" rel="stylesheet">
-      <link rel="stylesheet" href="css/font-awesome.min.css">
-      <!--
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <!-- Bootstrap core CSS -->
+
+  <!-- Material Design Bootstrap -->
+  <!--<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css?ver=4.4.2'>-->
+  <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.8/ladda.min.css'>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/cart.css">
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/csstricks/assets/css/keyframes.css">
+  <link rel="stylesheet" href="vendor/csstricks/assets/css/pageTransitions.css">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <!--
          <style type="text/css">
            html,
            body,
@@ -42,592 +49,274 @@
              }
            }
          </style>-->
-   </head>
-   <body class="home-page m-scene" id="main">
-      <div class="m-page scene_element scene_element--fadeinup">
-         <!-- Navbar -->
-         <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-            <div class="container">
-               <!-- Brand -->
-               <a class="navbar-brand waves-effects backtoprev" href="#">
-               <i class="material-icons fa-2x">chevron_left</i>
-               </a>
-               <!-- Collapse -->
-               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-               </button>
-               <!-- Links -->
-               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <!-- Left -->
-                  <ul class="navbar-nav mr-auto">
-                     <li class="nav-item active">
-                        <a class="nav-link waves-effect" href="index.html">Home
-                        <span class="sr-only">(current)</span>
-                        </a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="customer-list.html">Customers</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="orders.html">Orders</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="storefront-beta2.html">Catalog</a>
-                     </li>
-                  </ul>
-                  <!-- Right -->
-                  <ul class="navbar-nav nav-flex-icons">
-                     <li class="nav-item btn-block">
-                        <form class="form-inline">
-                           <div class="md-form my-0 btn-block">
-                              <input class="form-control mr-sm-2 btn-block" type="text" placeholder="Search" aria-label="Search">
-                           </div>
-                        </form>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </nav>
-         <!-- Navbar -->
-         <!--Main layout-->
-         <main>
-            <div class="container  container-fluid mt-2">
-               <!--Navbar-->
-               <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-2 hidden">
-                  <!-- Navbar brand -->
-                  <span class="navbar-brand">Categories:</span>
-                  <!-- Collapse button -->
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicCollapsableNav"
-                     aria-controls="basicCollapsableNav" aria-expanded="false" aria-label="Toggle navigation">
-                     <!--  <span class="navbar-toggler-icon"></span>-->
-                     <i class="fa fa-ellipsis-v"></i>
-                  </button>
-                  <!-- Collapsible content -->
-                  <div class="collapse navbar-collapse" id="basicCollapsableNav">
-                     <!-- Links -->
-                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                           <a class="nav-link" href="#">All
-                           <span class="sr-only">(current)</span>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#">Shirts</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#">Sport wears</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#">Outwears</a>
-                        </li>
-                     </ul>
-                     <!-- Links -->
-                     <form class="form-inline">
-                        <div class="md-form my-0">
-                           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                        </div>
-                     </form>
-                  </div>
-                  <!-- Collapsible content -->
-               </nav>
-               <!--/.Navbar-->
-               <!--Section: Products v.3-->
-               <section class="text-center mb-4">
-                  <!--Grid row-->
-                  <div class="row wow fadeIn">
-                     <!--Grid column-->
-                     <div class="col-4 col-sm-4 no-gutter">
-                        <!--Card-->
-                        <div class="cards productsonsale">
-                           <!--Card image-->
-                           <div class="view overlay">
-                              <img src="img/products/12.jpg" class="card-img-top" alt="">
-                              <a href="product-page.html">
-                                 <div class="mask rgba-white-slight"></div>
-                              </a>
-                           </div>
-                           <!--Card image-->
-                           <!--Card content-->
-                           <div class="card-body text-center">
-                              <!--Category & Title-->
-                              <a href="" class="grey-text truncate">
-                                 <h5>Shirt</h5>
-                              </a>
-                              <div class="truncate">
-                                 <h5>
-                                    <a href="" class="dark-grey-text">Denim shirt</a>
-                                 </h5>
-                                 <p class="badge badge-pill danger-color">NEW</p>
-                              </div>
-                              <h4 class=" blue-text">
-                                 <span>&#x20b1;120</span>
-                              </h4>
-                              <div class="input-group qtty-center">
-                                 <span class="input-group-btn">
-                                 <button type="button" class="btn btn-number waves-effect waves-light grey" data-type="minus"
-                                    data-field="quant[2]">
-                                 <i class="fa  fa-minus "></i>
-                                 </button>
-                                 </span>
-                                 <input type="text" name="quant[2]" class="form-control input-number quantity" value="0" min="0" max="100">
-                                 <span class="input-group-btn">
-                                 <button type="button" class="btn btn-number waves-effect waves-light grey" data-type="plus"
-                                    data-field="quant[2]">
-                                 <i class="fa  fa-plus "></i>
-                                 </button>
-                                 </span>
-                              </div>
-                           </div>
-                           <!--Card content-->
-                        </div>
-                        <!--Card-->
-                     </div>
-                     <!--Grid column-->
-                     <!--Grid column-->
-                     <div class="col-4 col-sm-4 no-gutter">
-                        <!--Card-->
-                        <div class="cards productsonsale">
-                           <!--Card image-->
-                           <div class="view overlay">
-                              <img src="img/products/13.jpg" class="card-img-top" alt="">
-                              <a>
-                                 <div class="mask rgba-white-slight"></div>
-                              </a>
-                           </div>
-                           <!--Card image-->
-                           <!--Card content-->
-                           <div class="card-body text-center">
-                              <!--Category & Title-->
-                              <a href="" class="grey-text">
-                                 <h5>Sport wear</h5>
-                              </a>
-                              <h5>
-                                 <strong>
-                                 <a href="" class="dark-grey-text">Sweatshirt</a>
-                                 </strong>
-                              </h5>
-                              <h4 class="font-weight-bold blue-text">
-                                 <strong>139$</strong>
-                              </h4>
-                           </div>
-                           <!--Card content-->
-                        </div>
-                        <!--Card-->
-                     </div>
-                     <!--Grid column-->
-                     <!--Grid column-->
-                     <div class="col-4 col-sm-4 no-gutter">
-                        <!--Card-->
-                        <div class="cards productsonsale">
-                           <!--Card image-->
-                           <div class="view overlay">
-                              <img src="img/products/14.jpg" class="card-img-top" alt="">
-                              <a>
-                                 <div class="mask rgba-white-slight"></div>
-                              </a>
-                           </div>
-                           <!--Card image-->
-                           <!--Card content-->
-                           <div class="card-body text-center">
-                              <!--Category & Title-->
-                              <a href="" class="grey-text">
-                                 <h5>Sport wear</h5>
-                              </a>
-                              <h5>
-                                 <strong>
-                                 <a href="" class="dark-grey-text">Grey blouse
-                                 <span class="badge badge-pill primary-color">bestseller</span>
-                                 </a>
-                                 </strong>
-                              </h5>
-                              <h4 class="font-weight-bold blue-text">
-                                 <strong>99$</strong>
-                              </h4>
-                           </div>
-                           <!--Card content-->
-                        </div>
-                        <!--Card-->
-                     </div>
-                     <!--Grid column-->
-                     <!--Fourth column-->
-                     <div class="col-4 col-sm-4 no-gutter">
-                        <!--Card-->
-                        <div class="cards productsonsale">
-                           <!--Card image-->
-                           <div class="view overlay">
-                              <img src="img/products/15.jpg" class="card-img-top" alt="">
-                              <a>
-                                 <div class="mask rgba-white-slight"></div>
-                              </a>
-                           </div>
-                           <!--Card image-->
-                           <!--Card content-->
-                           <div class="card-body text-center">
-                              <!--Category & Title-->
-                              <a href="" class="grey-text">
-                                 <h5>Outwear</h5>
-                              </a>
-                              <h5>
-                                 <strong>
-                                 <a href="" class="dark-grey-text">Black jacket</a>
-                                 </strong>
-                              </h5>
-                              <h4 class="font-weight-bold blue-text">
-                                 <strong>219$</strong>
-                              </h4>
-                           </div>
-                           <!--Card content-->
-                        </div>
-                        <!--Card-->
-                     </div>
-                     <!--Fourth column-->
-                     <!--Grid column-->
-                     <div class="col-4 col-sm-4 no-gutter">
-                        <!--Card-->
-                        <div class="cards productsonsale">
-                           <!--Card image-->
-                           <div class="view overlay">
-                              <img src="img/products/13.jpg" class="card-img-top" alt="">
-                              <a>
-                                 <div class="mask rgba-white-slight"></div>
-                              </a>
-                           </div>
-                           <!--Card image-->
-                           <!--Card content-->
-                           <div class="card-body text-center">
-                              <!--Category & Title-->
-                              <a href="" class="grey-text">
-                                 <h5>Sport wear</h5>
-                              </a>
-                              <h5>
-                                 <strong>
-                                 <a href="" class="dark-grey-text">Sweatshirt</a>
-                                 </strong>
-                              </h5>
-                              <h4 class="font-weight-bold blue-text">
-                                 <strong>139$</strong>
-                              </h4>
-                           </div>
-                           <!--Card content-->
-                        </div>
-                        <!--Card-->
-                     </div>
-                     <!--Grid column-->
-                     <!--Grid column-->
-                     <div class="col-4 col-sm-4 no-gutter">
-                        <!--Card-->
-                        <div class="cards productsonsale">
-                           <!--Card image-->
-                           <div class="view overlay">
-                              <img src="img/products/14.jpg" class="card-img-top" alt="">
-                              <a>
-                                 <div class="mask rgba-white-slight"></div>
-                              </a>
-                           </div>
-                           <!--Card image-->
-                           <!--Card content-->
-                           <div class="card-body text-center">
-                              <!--Category & Title-->
-                              <a href="" class="grey-text">
-                                 <h5>Sport wear</h5>
-                              </a>
-                              <h5>
-                                 <strong>
-                                 <a href="" class="dark-grey-text">Grey blouse
-                                 <span class="badge badge-pill primary-color">bestseller</span>
-                                 </a>
-                                 </strong>
-                              </h5>
-                              <h4 class="font-weight-bold blue-text">
-                                 <strong>99$</strong>
-                              </h4>
-                           </div>
-                           <!--Card content-->
-                        </div>
-                        <!--Card-->
-                     </div>
-                     <!--Grid column-->
-                  </div>
-                  <!--Grid row-->
-                  <!--Grid row-->
-                  <div class="row wow fadeIn">
-                     <!--Grid column-->
-                     <div class="col-4 col-sm-4 no-gutter">
-                        <!--Card-->
-                        <div class="cards productsonsale">
-                           <!--Card image-->
-                           <div class="view overlay">
-                              <img src="img/products/13.jpg" class="card-img-top" alt="">
-                              <a>
-                                 <div class="mask rgba-white-slight"></div>
-                              </a>
-                           </div>
-                           <!--Card image-->
-                           <!--Card content-->
-                           <div class="card-body text-center">
-                              <!--Category & Title-->
-                              <a href="" class="grey-text">
-                                 <h5>Shirt</h5>
-                              </a>
-                              <h5>
-                                 <strong>
-                                 <a href="" class="dark-grey-text">Denim shirt
-                                 <span class="badge badge-pill danger-color">NEW</span>
-                                 </a>
-                                 </strong>
-                              </h5>
-                              <h4 class="font-weight-bold blue-text">
-                                 <strong>120$</strong>
-                              </h4>
-                           </div>
-                           <!--Card content-->
-                        </div>
-                        <!--Card-->
-                     </div>
-                     <!--Grid column-->
-                     <!--Grid column-->
-                     <div class="col-4 col-sm-4 no-gutter">
-                        <!--Card-->
-                        <div class="cards productsonsale">
-                           <!--Card image-->
-                           <div class="view overlay">
-                              <img src="img/products/14.jpg" class="card-img-top" alt="">
-                              <a>
-                                 <div class="mask rgba-white-slight"></div>
-                              </a>
-                           </div>
-                           <!--Card image-->
-                           <!--Card content-->
-                           <div class="card-body text-center">
-                              <!--Category & Title-->
-                              <a href="" class="grey-text">
-                                 <h5>Sport wear</h5>
-                              </a>
-                              <h5>
-                                 <strong>
-                                 <a href="" class="dark-grey-text">Sweatshirt</a>
-                                 </strong>
-                              </h5>
-                              <h4 class="font-weight-bold blue-text">
-                                 <strong>139$</strong>
-                              </h4>
-                           </div>
-                           <!--Card content-->
-                        </div>
-                        <!--Card-->
-                     </div>
-                     <!--Grid column-->
-                     <!--Grid column-->
-                     <div class="col-4 col-sm-4 no-gutter">
-                        <!--Card-->
-                        <div class="cards productsonsale">
-                           <!--Card image-->
-                           <div class="view overlay">
-                              <img src="img/products/15.jpg" class="card-img-top" alt="">
-                              <a>
-                                 <div class="mask rgba-white-slight"></div>
-                              </a>
-                           </div>
-                           <!--Card image-->
-                           <!--Card content-->
-                           <div class="card-body text-center">
-                              <!--Category & Title-->
-                              <a href="" class="grey-text">
-                                 <h5>Sport wear</h5>
-                              </a>
-                              <h5>
-                                 <strong>
-                                 <a href="" class="dark-grey-text">Grey blouse
-                                 <span class="badge badge-pill primary-color">bestseller</span>
-                                 </a>
-                                 </strong>
-                              </h5>
-                              <h4 class="font-weight-bold blue-text">
-                                 <strong>99$</strong>
-                              </h4>
-                           </div>
-                           <!--Card content-->
-                        </div>
-                        <!--Card-->
-                     </div>
-                     <!--Grid column-->
-                     <!--Fourth column-->
-                     <div class="col-4 col-sm-4 no-gutter">
-                        <!--Card-->
-                        <div class="cards productsonsale">
-                           <!--Card image-->
-                           <div class="view overlay">
-                              <img src="img/products/12.jpg" class="card-img-top" alt="">
-                              <a>
-                                 <div class="mask rgba-white-slight"></div>
-                              </a>
-                           </div>
-                           <!--Card image-->
-                           <!--Card content-->
-                           <div class="card-body text-center">
-                              <!--Category & Title-->
-                              <a href="" class="grey-text">
-                                 <h5>Outwear</h5>
-                              </a>
-                              <h5>
-                                 <strong>
-                                 <a href="" class="dark-grey-text">Black jacket</a>
-                                 </strong>
-                              </h5>
-                              <h4 class="font-weight-bold blue-text">
-                                 <strong>219$</strong>
-                              </h4>
-                           </div>
-                           <!--Card content-->
-                        </div>
-                        <!--Card-->
-                     </div>
-                     <!--Fourth column-->
-                  </div>
-                  <!--Grid row-->
-               </section>
-               <!--Section: Products v.3-->
-               <!--Pagination-->
-               <nav class="d-flex justify-content-center wow fadeIn">
-                  <ul class="pagination pg-blue">
-                     <!--Arrow left-->
-                     <li class="page-item disabled">
-                        <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                        </a>
-                     </li>
-                     <li class="page-item active">
-                        <a class="page-link" href="#">1
-                        <span class="sr-only">(current)</span>
-                        </a>
-                     </li>
-                     <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                     </li>
-                     <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                     </li>
-                     <li class="page-item">
-                        <a class="page-link" href="#">4</a>
-                     </li>
-                     <li class="page-item">
-                        <a class="page-link" href="#">5</a>
-                     </li>
-                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                        </a>
-                     </li>
-                  </ul>
-               </nav>
-               <!--Pagination-->
-            </div>
-         </main>
-         <!--Main layout-->
-         <!--Footer-->
-         <footer class="page-footer fixed-bottom text-center font-small mt-4">
-            <!--Call to action-->
-            <div class="container-fluid pt-2 pb-2 white">
-               <a class="btn btn-success btn-block" href="#" role="button" data-toggle="modal" data-target="#modalCart">View
-               Cart
-               <i class="fa fa-shopping-cart ml-2"></i>
-               <span class="badge red super8 z-depth-1 mr-1"> 1 </span>
-               </a>
-            </div>
-            <!--/.Call to action-->
-         </footer>
-         <!--/.Footer-->
+</head>
+
+<body class="storefront m-scene" id="main">
+  <div class="m-page scene_element scene_element--fadeinup">
+
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+      <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effects backtoprev" href="#">
+          <i class="material-icons fa-2x">chevron_left</i>
+        </a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link waves-effect" href="index.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="customer-list.html">Customers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="orders.html">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="user.html">Catalog</a>
+            </li>
+          </ul>
+
+          <!-- Right 
+          <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item">
+              <a class="nav-link waves-effect">
+                <span class="badge red z-depth-1 mr-1"> 1 </span>
+                <i class="fa fa-shopping-cart"></i>
+                <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+              </a>
+            </li>
+
+          </ul>-->
+
+        </div>
+
       </div>
-      <!-- SCRIPTS -->
-      <!-- JQuery -->
-      <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-      <!-- Bootstrap tooltips -->
-      <script type="text/javascript" src="js/popper.min.js"></script>
-      <!-- Bootstrap core JavaScript -->
-      <script type="text/javascript" src="js/bootstrap.min.js"></script>
-      <!-- MDB core JavaScript -->
-      <script type="text/javascript" src="js/mdb.min.js"></script>
-      <!-- Initializations -->
-      <script src="vendor/csstricks/assets/js/jquery.smoothState.min.js"></script>
-      <script src="vendor/csstricks/assets/js/main.js"></script>
-      <script type="text/javascript" src="js/app.js"></script>
-      <!-- Initializations -->
-      <script type="text/javascript">
-         // Animations initialization
-         new WOW().init();
-         // SideNav Button Initialization
-         // $(".button-collapse").sideNav();
-         // SideNav Scrollbar Initialization
-         //var sideNavScrollbar = document.querySelector('.custom-scrollbar');
-         //Ps.initialize(sideNavScrollbar);
-      </script>
-      <!-- Modal: modalCart -->
-      <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <!--Header-->
-               <div class="modal-header">
-                  <h4 class="modal-title" id="myModalLabel">Your cart</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                  </button>
-               </div>
-               <!--Body-->
-               <div class="modal-body">
-                  <table class="table table-hover">
-                     <thead>
-                        <tr>
-                           <th>#</th>
-                           <th>Product name</th>
-                           <th>Price</th>
-                           <th>Remove</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <th scope="row">1</th>
-                           <td>Product 1</td>
-                           <td>100$</td>
-                           <td><a><i class="fa fa-remove"></i></a></td>
-                        </tr>
-                        <tr>
-                           <th scope="row">2</th>
-                           <td>Product 2</td>
-                           <td>100$</td>
-                           <td><a><i class="fa fa-remove"></i></a></td>
-                        </tr>
-                        <tr>
-                           <th scope="row">3</th>
-                           <td>Product 3</td>
-                           <td>100$</td>
-                           <td><a><i class="fa fa-remove"></i></a></td>
-                        </tr>
-                        <tr>
-                           <th scope="row">4</th>
-                           <td>Product 4</td>
-                           <td>100$</td>
-                           <td><a><i class="fa fa-remove"></i></a></td>
-                        </tr>
-                        <tr class="total">
-                           <th scope="row">5</th>
-                           <td>Total</td>
-                           <td>400$</td>
-                           <td></td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </div>
-               <!--Footer-->
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-                  <button class="btn btn-primary">Checkout</button>
-               </div>
-            </div>
-         </div>
+    </nav>
+    <!-- Navbar -->
+
+
+    <!--Main layout-->
+    <main>
+      <div class="container  container-fluid mt-2">
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-2 hidden">
+          <!-- Navbar brand -->
+          <span class="navbar-brand">Categories:</span>
+          <!-- Collapse button -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicCollapsableNav"
+            aria-controls="basicCollapsableNav" aria-expanded="false" aria-label="Toggle navigation">
+            <!--  <span class="navbar-toggler-icon"></span>-->
+            <i class="fa fa-ellipsis-v"></i>
+          </button>
+          <!-- Collapsible content -->
+          <div class="collapse navbar-collapse" id="basicCollapsableNav">
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">All
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Shirts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sport wears</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Outwears</a>
+              </li>
+            </ul>
+            <!-- Links -->
+            <form class="form-inline">
+              <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              </div>
+            </form>
+          </div>
+          <!-- Collapsible content -->
+        </nav>
+        <!--/.Navbar-->
+        <!--Section: Products v.3-->
+        <div class="productosWrapper large-12 columns">
+
+        </div>
+        <!--Section: Products v.3-->
+        <!--Pagination-->
+        <nav class="d-flex justify-content-center wow hidden fadeIn">
+          <ul class="pagination pg-blue">
+            <!--Arrow left-->
+            <li class="page-item disabled">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">4</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">5</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!--Pagination-->
       </div>
-      <!-- Modal: modalCart -->
-   </body>
+    </main>
+    <!--Main layout-->
+    <!--Footer-->
+    <footer class="page-footer fixed-bottom text-center font-small mt-4">
+      <!--Call to action-->
+
+      <div class="container-fluid pt-2 pb-2 white">
+        <a class="btn btn-success btn-block" href="#" role="button" data-toggle="modal" data-target="#modalCart">View
+          Cart
+          <a class="cart-icon">
+            <span id="totalItems">0</span>
+
+          </a>
+          <!---<i class="fa fa-shopping-cart ml-2"></i>
+               <span class="badge red super8 z-depth-1 mr-1"> 1 </span>-->
+        </a>
+      </div>
+      <!--/.Call to action-->
+    </footer>
+    <!--/.Footer-->
+  </div>
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Initializations -->
+  <script src="vendor/csstricks/assets/js/jquery.smoothState.min.js"></script>
+  <script src="vendor/csstricks/assets/js/main.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+    // SideNav Button Initialization
+    // $(".button-collapse").sideNav();
+    // SideNav Scrollbar Initialization
+    //var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+    //Ps.initialize(sideNavScrollbar);
+  </script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.8/spin.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.8/ladda.min.js'></script>
+
+
+
+  <script src="js/cart.js"></script>
+
+
+  <!-- Modal: modalCart -->
+  <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Your cart</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body">
+          <!-- <a class="cart-icon">
+                            <span id="totalItems">0</span>
+                           
+                        </a>
+                        <div class="cart"></div>-->
+          <table class="table cart table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Product name</th>
+                <th>Price</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Product 1</td>
+                <td>100$</td>
+                <td><a><i class="fa fa-remove"></i></a></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Product 2</td>
+                <td>100$</td>
+                <td><a><i class="fa fa-remove"></i></a></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Product 3</td>
+                <td>100$</td>
+                <td><a><i class="fa fa-remove"></i></a></td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Product 4</td>
+                <td>100$</td>
+                <td><a><i class="fa fa-remove"></i></a></td>
+              </tr>
+              <tr class="total">
+                <th scope="row">5</th>
+                <td>Total</td>
+                <td>400$</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--Footer-->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+          <button class="btn btn-primary">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal: modalCart -->
+</body>
+
 </html>

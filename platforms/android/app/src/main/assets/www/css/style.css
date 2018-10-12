@@ -294,3 +294,24 @@ body.customer-list p {
     text-align: center !important;
 }
 
+button, .button{
+    margin: 0 !important;
+}
+
+.circled {
+    width: 25px !important;
+    height: 25px !important;
+    padding: 2px 5px;
+    background: #8d8d8d;
+    border-radius: 50%;
+    color: #fff !important;
+}
+
+
+
+.cart:before {
+    border-color: none !important;
+    border-left-color:transparent !important;
+    border-width:0px  !important;
+    margin-top: -27px e !important;
+}
