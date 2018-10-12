@@ -61,7 +61,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 				stock : 0
 			}
 		],
-		wrapper = $('.productosWrapper'),
+		wrapper = $('#productosWrapper'),
 		content = ''
 
 		for(var i = 0; i < products.length; i++){
