@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Material Design Bootstrap</title>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="css/mdb.min.css" rel="stylesheet">
+	<link href="css/compiled-4.5.12.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="vendor/csstricks/assets/css/keyframes.css">
+	<link rel="stylesheet" href="vendor/csstricks/assets/css/pageTransitions.css">
+	<!-- Your custom styles (optional) -->
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/cart.css" rel="stylesheet">
+</head>
+
+<body class="cartsample m-scene" id="main">
+
+	<div class="m-page scene_element scene_element--fadeinleft">
+		<!-- Navbar -->
+		<nav class="navbar fixed-top navbar-expand-lg navbar-light transparent noshadow scrolling-navbar">
+			<div class="container">
+
+				<!-- Brand -->
+				<a class="navbar-brand waves-effects backtoprev closealamodal" href="#">
+					<i class="material-icons fa-2x">close</i>
+				</a>
+
+
+				<!-- Collapse -->
+				<button class="navbar-toggler hidden" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+					<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+				</button>
+
+				<!-- Links -->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+					<!-- Left -->
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link waves-effect" href="index.html">Home
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link waves-effect" href="customer-list.html">Customers</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link waves-effect" href="orders.html">Orders</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link waves-effect" href="storefront.html">Catalog</a>
+						</li>
+					</ul>
+
+					<!-- Right -->
+					<ul class="navbar-nav nav-flex-icons">
+						<li class="nav-item">
+							<a class="nav-link waves-effect">
+								<span class="badge red z-depth-1 mr-1"> 1 </span>
+								<i class="fa fa-shopping-cart"></i>
+								<span class="clearfix d-none d-sm-inline-block"> Cart </span>
+							</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+		</nav>
+		<!-- Navbar -->
+
+
+		<!-- Start your project here-->
+		<div style="height: 100vh">
+			<div class="container flex-center flex-column m-page scene_element scene_element--fadeinup mt-2">
+
+				<div>
+
+					<div class="row">
+
+						<a class="cart-icon">
+							<span id="totalItems">0</span>
+							<ul class="cart"></ul>
+						</a>
+
+
+						<div class="productosWrapper large-12 columns">
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- /Start your project here-->
+
+		<!-- SCRIPTS -->
+		<!-- JQuery -->
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/underscore.min.js"></script>
+
+		<!-- Bootstrap tooltips -->
+		<script type="text/javascript" src="js/popper.min.js"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<!-- MDB core JavaScript -->
+		<script type="text/javascript" src="js/mdb.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- Initializations -->
+		<script src="vendor/csstricks/assets/js/jquery.smoothState.min.js"></script>
+		<script src="vendor/csstricks/assets/js/main.js"></script>
+
+		<!-- Initializations -->
+		<script type="text/javascript">
+			// Animations initialization
+			new WOW().init();
+			// SideNav Button Initialization
+			// $(".button-collapse").sideNav();
+			// SideNav Scrollbar Initialization
+			//var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+			//Ps.initialize(sideNavScrollbar);
+		</script>
+
+<script type='text/javascript' src="cart/js/jquery.mycart.js"></script>
+<!--<script type='text/javascript' src="cart/js/jquery.checkout.js"></script>-->
+<script type="text/javascript">
+  $(function () {
+
+	var goToCartIcon = function ($addTocartBtn) {
+	  var $cartIcon = $(".my-cart-icon");
+	  var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({
+		"position": "fixed",
+		"z-index": "999"
+	  });
+	  $addTocartBtn.prepend($image);
+	  var position = $cartIcon.position();
+	  $image.animate({
+		top: position.top,
+		left: position.left
+	  }, 500, "linear", function () {
+		$image.remove();
+	  });
+	}
+
+	$('.my-cart-btn').myCart({
+	  classCartIcon: 'my-cart-icon',
+	  classCartBadge: 'my-cart-badge',
+	  affixCartIcon: true,
+	  checkoutCart: function (products) {
+		$.each(products, function () {
+		  console.log("my cart", this);
+		  $("#mycustomer").val();
+		});
+	  },
+	  clickOnAddToCart: function ($addTocart) {
+		goToCartIcon($addTocart);
+		console.log(this);
+	  },
+	  clickOnLessToCart: function ($lessTocart) {
+		goToCartIcon($lessTocart);
+		console.log(this);
+	  },
+	  getDiscountPrice: function (products) {
+		var total = 0;
+		$.each(products, function () {
+		  total += this.quantity * this.price;
+		});
+		return total * 0.5;
+	  }
+	});
+
+
+	$('.my-less-cart-btn').myCart({
+	  classCartIcon: 'my-cart-icon',
+	  classCartBadge: 'my-cart-badge',
+	  affixCartIcon: true,
+	  checkoutCart: function (products) {
+		$.each(products, function () {
+		  console.log(this);
+		});
+	  },
+	  clickOnLessToCart: function ($lessTocart) {
+		goToCartIcon($lessTocart);
+		console.log(this);
+	  },
+	  getDiscountPrice: function (products) {
+		var total = 0;
+		$.each(products, function () {
+		  total += this.quantity * this.price;
+		});
+		return total * 0.5;
+	  }
+	});
+
+	$(".my-cart-icon, .my-cart-btn").click(function () {
+	  $("#selectCustomer").append($("#searchCustomer"));
+	  var product =    $("#prodN").html();
+	  var quantity =    $("#quantity").html();
+	  var total =    $("#total").html();
+	  var customer = $("#imcustomer").val();
+	  var salesman = $("#hissales").val();
+		
+	  var d = new Date();
+	  var timestamp = d.getFullYear() + "/" + ("0" + (d.getMonth() + 1)).slice(-2) + "/" + ("0" + (d.getDate())).slice(
+		  -2) + " " + ("0" + (d.getHours())).slice(-2) + ":" + ("0" + (d.getMinutes())).slice(-2) + ":" + ("0" +
+		  (d.getSeconds())).slice(-2) + "." + ("0" + (d.getMilliseconds())).slice(-2);
+			localStorage.setItem("customer", customer);
+			localStorage.setItem("salesman", salesman);
+			localStorage.setItem("product", product);
+			localStorage.setItem("quantity", quantity);
+			localStorage.setItem("total", total);
+			localStorage.setItem("timestamp", d);
+
+	 //alert(customer);
+	})
+		</script>
+	</div>
+</body>
+
+</html>

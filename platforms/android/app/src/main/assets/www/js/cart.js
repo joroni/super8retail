@@ -161,12 +161,15 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 			   total = total  + (n.cant * n.price)
 			   items += '<tr>'
 			   //items += '<td><img src="'+n.img+'" /></td>'
-			   items += '<td><h3 class="title">'+n.name+'</h3></td><td><span class="price">'+n.cant+' x $ '+n.price+' USD</span></td><td> <button class="add" onclick="app.updateItem('+n.id+','+n.available+')"><i class="icon ion-minus-circled"></i></button> <button onclick="app.deleteProd('+n.id+')" ><i class="icon ion-close-circled"></i></button></td>'
+			   items += '<td><h3 class="title">'+n.name+'</h3></td>'
+			   items += '<td><span class="price">'+n.cant+'x </td>'
+			   items +='<td>$ '+n.price+'</span></td>'
+			   items +='<td> <a class="add btn-circle" onclick="app.updateItem('+n.id+','+n.available+')"><i class="icon ion-minus-circled"></i></a> <a onclick="app.deleteProd('+n.id+')" ><i class="icon ion-close-circled"></i></a></td>'
 			   items += '</tr>'
 			});
 
 			//agregar el total al carrito
-			items += '<tr><td id="total" colspan="3">Total : $ '+total+' </td><td>USD <div id="submitForm"></div></td></tr>'
+			items += '<tr><td colspan="1" class="total> <div id="submitForm"></div></td><td id="total" colspan="3">Total : $ '+total+' </td></tr>'
 			wrapper.html(items)
 			$('.cart').css('left','0')
 		}

@@ -9,16 +9,17 @@
       <!-- Bootstrap core CSS -->
       <link href="css/bootstrap.min.css" rel="stylesheet">
       <!-- Material Design Bootstrap -->
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css?ver=4.4.2'>
+      <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.8/ladda.min.css'>
+  
       <link href="css/mdb.min.css" rel="stylesheet">
       <link rel="stylesheet" href="vendor/csstricks/assets/css/keyframes.css">
       <link rel="stylesheet" href="vendor/csstricks/assets/css/pageTransitions.css">
       <!-- Your custom styles (optional) -->
       <link href="css/style.css" rel="stylesheet">
       <link rel="stylesheet" href="css/font-awesome.min.css">
-      	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css?ver=4.4.2'>
-	<link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.8/ladda.min.css'>
-
+      
 	<link rel="stylesheet" href="css/cart.css">
       <!--
          <style type="text/css">
@@ -50,51 +51,62 @@
    </head>
    <body class="storefront m-scene" id="main">
       <div class="m-page scene_element scene_element--fadeinup">
-         <!-- Navbar -->
-         <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-            <div class="container">
-               <!-- Brand -->
-               <a class="navbar-brand waves-effects backtoprev" href="#">
-               <i class="material-icons fa-2x">chevron_left</i>
-               </a>
-               <!-- Collapse -->
-               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-               </button>
-               <!-- Links -->
-               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <!-- Left -->
-                  <ul class="navbar-nav mr-auto">
-                     <li class="nav-item active">
-                        <a class="nav-link waves-effect" href="index.html">Home
-                        <span class="sr-only">(current)</span>
-                        </a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="customer-list.html">Customers</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="orders.html">Orders</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="storefront.html">Catalog</a>
-                     </li>
-                  </ul>
-                  <!-- Right -->
-                  <ul class="navbar-nav nav-flex-icons">
-                     <li class="nav-item btn-block">
-                        <form class="form-inline">
-                           <div class="md-form my-0 btn-block">
-                              <input class="form-control mr-sm-2 btn-block" type="text" placeholder="Search" aria-label="Search">
-                           </div>
-                        </form>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </nav>
-         <!-- Navbar -->
+        
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand waves-effects backtoprev" href="#">
+        <i class="material-icons fa-2x">chevron_left</i>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link waves-effect" href="index.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="customer-list.html">Customers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="orders.html">Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="user.html">Catalog</a>
+          </li>
+        </ul>
+
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+          <li class="nav-item">
+            <a class="nav-link waves-effect">
+              <span class="badge red z-depth-1 mr-1"> 1 </span>
+              <i class="fa fa-shopping-cart"></i>
+              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            </a>
+          </li>
+         
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+
          <!--Main layout-->
          <main>
             <div class="container  container-fluid mt-2">
@@ -143,7 +155,7 @@
             </div>
                <!--Section: Products v.3-->
                <!--Pagination-->
-               <nav class="d-flex justify-content-center wow fadeIn">
+               <nav class="d-flex justify-content-center wow hidden fadeIn">
                   <ul class="pagination pg-blue">
                      <!--Arrow left-->
                      <li class="page-item disabled">
