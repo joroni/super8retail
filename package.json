@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "displayName": "Super8Ecommerce",
   "cordova": {
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   },
-  "dependencies": {
-    "cordova-android": "~7.0.0"
-  }
+  "dependencies": {}
 }
