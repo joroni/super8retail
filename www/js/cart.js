@@ -113,6 +113,53 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 		}
 	}
 
+
+	app.createMenu = function(){
+		var menuitemss = [{
+			id: 1,
+			icon: 'chevron_left',
+			name: 'Home',
+			url: '#'
+
+		},
+		{
+			id: 2,
+			icon: 'chevron_left',
+			name: 'Customers',
+			url: 'customer-list.html'
+		},
+		{
+			id: 3,
+			icon: 'chevron_left',
+			name: 'Orders',
+			url: 'orders.html'
+		}
+	],
+
+		
+		wrapper = $('#mainMenu'),
+		content = ''
+
+		for(var i = 0; i < menuitemss.length; i++){
+
+			
+			content += '<li class="nav-item">'
+			content += '<a class="nav-link waves-effect" href="' + menuitemss[i].url + '">' + menuitemss[i].name
+			content += '<span class="sr-only"></span>'
+			content += '</a>'
+			content += '</li>'
+
+
+		}
+
+		wrapper.html(content)
+
+		localStorage.setItem('menuitemss',JSON.stringify(menuitemss))
+	}
+
+
+
+
 	app.searchProd = function(cart,id,cant,name,price,img,available){
 		//si le pasamos un valor negativo a la cantidad, se descuenta del carrito
 		var curProd = _.find(cart.items, { 'id': id })
@@ -142,6 +189,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 		app.init()
 		app.getProducts()
 		app.updatePayForm()
+		app.createMenu()
 	}
 
 	app.getProducts = function(){
@@ -164,12 +212,12 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 			   items += '<td><span class="qant">'+n.cant+'x </span></td>'
 			   items += '<td><h3 class="title">'+n.name+'</h3></td>'
 			   items +='<td><span class="price">$ '+n.price+'</span></td>'
-			   items +='<td> <a class="add btn-circled circled" onclick="app.updateItem('+n.id+','+n.available+')"><i class="icon ion-minus"></i></a> <a onclick="app.deleteProd('+n.id+')" class="circled" ><i class="icon ion-close "></i></a></td>'
+			   items +='<td> <a class="add btn-circled circled" onclick="app.updateItem('+n.id+','+n.available+')"><i class="material-icons">remove</i></a> <a onclick="app.deleteProd('+n.id+')" class="circled" ><i class="material-icons ">close</i></a></td>'
 			   items += '</tr>'
 			});
 
 			//agregar el total al carrito
-			items += '<tr><td colspan="1" class="total> <div id="submitForm"></div></td><td id="total" colspan="3">Total : $ '+total+' </td></tr>'
+			items += '<tr><td colspan="2" class="total> <div id="submitForm"></div></td><td id="total" class="total right" colspan="3">Total : $ '+total+' </td></tr>'
 			wrapper.html(items)
 			$('.cart').css('left','0')
 		}
@@ -242,6 +290,9 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 
 			wrapper.html(statics)
 		}
+
+
+		
 	}
 
 	$(document).ready(function(){
@@ -249,6 +300,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 		app.getProducts()
 		app.updatePayForm()
 		app.createProducts()
+		app.createMenu()
 	})
 
 })(jQuery)

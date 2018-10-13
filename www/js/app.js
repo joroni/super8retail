@@ -1,28 +1,27 @@
 $(document).ready(function () {
 
 
-
+    showMenu();
     var backtoprev = $(".backtoprev"),
         btnlogin = $("#btnLogin"),
         btnregister = $("#btnRegister");
 
 
     function showQuantity() {
-        
-        $('.quantity').each(function(){
 
-            if ( $(this).val() == 0)
-            {
+        $('.quantity').each(function () {
+
+            if ($(this).val() == 0) {
                 $(this).hide();
-            }else{
+            } else {
                 $(this).show();
             }
         });
 
-     
+
     }
 
-   // showQuantity();
+    // showQuantity();
     backtoprev.click(function () {
         //window.location.href="login.html";
         window.history.go(-1);
@@ -112,5 +111,42 @@ $(document).ready(function () {
     });
 
 
+
+  
+
+    function showMenu() {
+        var myObj, i, j, x = "";
+        myObj = {
+            "name": "John",
+            "age": 30,
+            "menuitems": [{
+                    "name": "Home",
+                    "url": "index.html"
+                },
+                {
+                    "name": "Customers",
+                    "url": "customer-list.html"
+                },
+                {
+                    "name": "Orders",
+                    "url": "orders.html"
+                },
+                {
+                    "name": "Store",
+                    "url": "storegroup.html"
+                }
+            ]
+        }
+        for (i in myObj.menuitems) {
+            x += '<li class="nav-item"><a class="nav-link waves-effect" href="' + myObj.menuitems[i].url + '">' + myObj.menuitems[i].name + '</li>';
+            /* for (j in myObj.menuitems[i].models) {
+                 x += myObj.menuitems[i].models[j] + "<li class='hidden'>";
+             }*/
+        }
+
+        $("#mainMenu").html(x);
+
+
+    }
 
 });

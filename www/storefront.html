@@ -10,8 +10,8 @@
   <!-- Bootstrap core CSS -->
 
   <!-- Material Design Bootstrap -->
-  <link rel='stylesheet' href='css/foundation.min.css?ver=4.4.2'>
-  <link rel='stylesheet' href='css/ionicons.min.css'>
+  <!--<link rel='stylesheet' href='css/foundation.min.css?ver=4.4.2'>
+  <link rel='stylesheet' href='css/ionicons.min.css'>-->
   <link rel='stylesheet' href='css/ladda.min.css'>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/cart.css">
@@ -51,68 +51,55 @@
          </style>-->
 </head>
 
-<body class="">
-  <div class="storefront m-scene" id="main">
-  <div class="m-page scene_element scene_element--fadeinups">
+
+  <body class="storefront m-scene" id="main">
+  <div class="m-page scene_element scene_element--fadeinup">
 
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-      <div class="container">
-
-        <!-- Brand -->
-        <a class="navbar-brand waves-effects backtoprev" href="#">
-          <i class="material-icons fa-2x">chevron_left</i>
-        </a>
-
-        <!-- Collapse -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Links -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-          <!-- Left -->
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link waves-effect" href="index.html">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="customer-list.html">Customers</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="orders.html">Orders</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="user.html">Catalog</a>
-            </li>
-          </ul>
-
-          <!-- Right 
-          <ul class="navbar-nav nav-flex-icons">
-            <li class="nav-item">
-              <a class="nav-link waves-effect">
-                <span class="badge red z-depth-1 mr-1"> 1 </span>
-                <i class="fa fa-shopping-cart"></i>
-                <span class="clearfix d-none d-sm-inline-block"> Cart </span>
-              </a>
-            </li>
-
-          </ul>-->
-
+        <div class="container">
+  
+          <!-- Brand -->
+          <a class="navbar-brand waves-effects backtoprev" href="#">
+            <i class="material-icons fa-2x">chevron_left</i>
+          </a>
+  
+          <!-- Collapse -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <!-- Links -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+            <!-- Left -->
+            <ul class="navbar-nav mr-auto" id="mainMenu">
+  
+            </ul>
+  
+            <!-- Right 
+              <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                  <a class="nav-link waves-effect">
+                    <span class="badge red z-depth-1 mr-1"> 1 </span>
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+                  </a>
+                </li>
+  
+              </ul>-->
+  
+          </div>
+  
         </div>
-
-      </div>
-    </nav>
-    <!-- Navbar -->
+      </nav>
+      <!-- Navbar -->
 
 
     <!--Main layout-->
     <main>
-      <div class="container  container-fluid mt-2">
+      <div class="container container-fluid mt-2">
         <!--Navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-2 hidden">
           <!-- Navbar brand -->
@@ -216,38 +203,7 @@
     <!--/.Footer-->
   </div>
 </div>
-  <!-- SCRIPTS -->
-  <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <!-- Initializations -->
-  <script src="vendor/csstricks/assets/js/jquery.smoothState.min.js"></script>
-  <script src="vendor/csstricks/assets/js/main.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-  <!-- Initializations -->
-  <script type="text/javascript">
-    // Animations initialization
-    new WOW().init();
-    // SideNav Button Initialization
-    // $(".button-collapse").sideNav();
-    // SideNav Scrollbar Initialization
-    //var sideNavScrollbar = document.querySelector('.custom-scrollbar');
-    //Ps.initialize(sideNavScrollbar);
-  </script>
-
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script>
-  <script src='js/spin.min.js'></script>
-  <script src='js/ladda.min.js'></script>
-
-
-
-  <script src="js/cart.js"></script>
-
+ 
 
   <!-- Modal: modalCart -->
   <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -262,12 +218,13 @@
         </div>
         <!--Body-->
         <div class="modal-body">
+          <div class="row">
           <!-- <a class="cart-icon">
                             <span id="totalItems">0</span>
                            
                         </a>
                         <div class="cart"></div>-->
-          <table class="table cart table-hover">
+          <table class="table  table-hover">
             <thead>
               <tr>
                 <th>#</th>
@@ -276,8 +233,8 @@
                 <th>Remove</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody class="cart">
+              <!--<tr>
                 <th scope="row">1</th>
                 <td>Product 1</td>
                 <td>100$</td>
@@ -306,9 +263,10 @@
                 <td>Total</td>
                 <td>400$</td>
                 <td></td>
-              </tr>
+              </tr>-->
             </tbody>
           </table>
+        </div>
         </div>
         <!--Footer-->
         <div class="modal-footer">
@@ -317,8 +275,41 @@
         </div>
       </div>
     </div>
-  </div>
+
   <!-- Modal: modalCart -->
+   <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Initializations -->
+  <script src='js/lodash.min.js'></script>
+  <script src='js/spin.min.js'></script>
+  <script src='js/ladda.min.js'></script>
+
+
+
+  <script src="js/cart.js"></script>
+  <script src="vendor/csstricks/assets/js/jquery.smoothState.min.js"></script>
+  <script src="vendor/csstricks/assets/js/main.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+    // SideNav Button Initialization
+    // $(".button-collapse").sideNav();
+    // SideNav Scrollbar Initialization
+    //var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+    //Ps.initialize(sideNavScrollbar);
+  </script>
+
+ 
+
 </body>
 
 </html>

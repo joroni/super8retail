@@ -311,7 +311,7 @@ a.cart-icon {
   height: auto !important;
   background:transparent;
   color: #333;
-  font-size: 13px;
+  font-size: 1em;
 }
 .cart .pay {
   color: #fff !important;

@@ -297,11 +297,10 @@ body.customer-list p {
 button, .button{
     margin: 0 !important;
 }
-
 .circled {
-    width: 25px !important;
-    height: 25px !important;
-    padding: 2px 5px;
+    /* width: 25px !important; */
+    /* height: 25px !important; */
+    padding: 10px 2px 0 2px;
     background: #8d8d8d;
     border-radius: 50%;
     color: #fff !important;
@@ -314,4 +313,13 @@ button, .button{
     border-left-color:transparent !important;
     border-width:0px  !important;
     margin-top: -27px e !important;
+}
+
+.right {
+    text-align: right !important;
+}
+
+.total {
+    font-weight: 600;
+    font-size:1.3em;
 }
