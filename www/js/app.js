@@ -119,9 +119,14 @@ $(document).ready(function () {
         myObj = {
             "name": "John",
             "age": 30,
-            "menuitems": [{
+            "menuitems": [
+                {
                     "name": "Home",
                     "url": "index.html"
+                },
+                {
+                    "name": "Acount",
+                    "url": "user.html"
                 },
                 {
                     "name": "Customers",

@@ -1,5 +1,6 @@
 var app = window.app || {},
-business_paypal = ''; // aquí va tu correo electrónico de paypal
+business_paypal = '', // aquí va tu correo electrónico de paypal
+currency_icon='₱';
 
 (function($){
 	'use strict';
@@ -22,7 +23,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 		}
 
 		$('#totalItems').text(items)
-		$('.totalAmount').text('$ '+total+ ' USD')
+		$('.totalAmount').text(currency_icon+' '+total+ ' USD')
 		
 	}
 
@@ -30,8 +31,8 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 		var products = [
 			{
 				id : 1,
-				img : 'img/logo.png',
-				name : 'Libertad 5oz',
+				name : 'Denim Shirt',
+				img : 'img/products/12.jpg',
 				price : 299.00,
 				desc : 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 				stock : 4
@@ -39,7 +40,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 			{
 				id : 2,
 				name : 'Libertad 5oz',
-				img : 'img/logo.png',
+				img : 'img/products/13.jpg',
 				price : 199.00,
 				desc : 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 				stock : 2
@@ -47,7 +48,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 			{
 				id : 3,
 				name : 'Libertad 5oz',
-				img : 'img/logo.png',
+				img : 'img/products/14.jpg',
 				price : 99.00,
 				desc : 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 				stock : 1
@@ -55,10 +56,26 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 			{
 				id : 4,
 				name : 'Libertad 5oz',
-				img : 'img/logo.png',
+				img : 'img/products/15.jpg',
 				price : 80.00,
 				desc : 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
-				stock : 0
+				stock : 1
+			},
+			{
+				id : 5,
+				name : 'Libertad 5oz',
+				img : 'img/products/15.jpg',
+				price : 80.00,
+				desc : 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
+				stock : 2
+			},
+			{
+				id : 6,
+				name : 'Libertad 5oz',
+				img : 'img/products/15.jpg',
+				price : 80.00,
+				desc : 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
+				stock : 8
 			}
 		],
 		wrapper = $('#productosWrapper'),
@@ -68,15 +85,54 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 
 			if(products[i].stock > 0){
 
-				content+= '<div class="coin-wrapper">'
+			/*	content+= '<div class="coin-wrapper">'
 				content+= '		<img src="'+products[i].img+'" alt="'+products[i].name+'">'
 				content+= '		<span class="large-12 columns product-details">'
-				content+= '			<h3>'+products[i].name+' <span class="price">$ '+products[i].price+' USD</span></h3>'
+				content+= '			<h3>'+products[i].name+' <span class="price">'+currency_icon+''+products[i].price+' USD</span></h3>'
 				content+= '			<h3>We have: <span class="stock">'+products[i].stock+'</span></h3>'
 				content+= '		</span>'
 				content+= '		<a class="large-12 columns btn submit ladda-button prod-'+products[i].id+'" data-style="slide-right" onclick="app.addtoCart('+products[i].id+');">Add to cart</a>'
 				content+= '		<div class="clearfix"></div>'
-				content+= '</div>'
+				content+= '</div>'*/
+
+				content+='<div class="col-4 col-sm-4 no-gutter">'
+				content+='<div class="cards productsonsale">'
+				content+= '<div class="view overlay">'
+                content+='<img src="'+products[i].img+'"class="card-img-top"  alt="'+products[i].name+'">'
+                content+='<a href="product-page.html">'
+				content+='<div class="mask rgba-white-slight"></div>'
+                content+='</a>'
+				content+='</div>'
+				content+='<div class="card-body text-center">'
+				content+='<a href="" class="grey-text truncate">'
+				content+= '<h5>Shirt</h5>'
+                content+='</a>'
+                content+='<div class="truncate">'
+                content+=    '<h5>'
+                content+=        '<a href="" class="dark-grey-text"> "'+products[i].name+'"</a>'
+                content+=    '</h5>'
+				content+=   '<p class="badge badge-pill danger-color">NEW</p>'
+                content+='</div>'
+                content+='<h4 class=" blue-text">'
+				content+=   '<span>'+currency_icon+''+products[i].price+' </span>'
+				content+='</h4>'
+				content+='<h3 class="hidden">We have: <span class="stock">'+products[i].stock+'</span></h3>'
+				content+='<div class="input-group qtty-center">'
+				content+='<span class="input-group-btn">'
+				content+='<button type="button" class="btn btn-number waves-effect waves-light grey" data-type="minus">'
+				content+=        '<i class="fa fa-minus "></i>'
+				content+=      '</button>'
+				content+= '</span>'
+				content+=  '<input type="text" name="quant[2]" class="form-control input-number quantity" value="0" min="0" max="100">'
+				content+=  '<span class="input-group-btn">'
+				content+=      '<button type="button" class="btn btn-number waves-effect  submit ladda-button waves-light grey  prod-'+products[i].id+'" " data-type="plus" data-style="slide-right" onclick="app.addtoCart('+products[i].id+');">'
+				content+=    '<i class="fa fa-plus "></i>'
+				content+=      '</button>'
+				content+=  '</span>'
+				content+='</div>'
+				content+='</div>'
+				content+='</div>'
+				content+='</div>'
 
 			}
 
@@ -114,51 +170,6 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 	}
 
 
-	app.createMenu = function(){
-		var menuitemss = [{
-			id: 1,
-			icon: 'chevron_left',
-			name: 'Home',
-			url: '#'
-
-		},
-		{
-			id: 2,
-			icon: 'chevron_left',
-			name: 'Customers',
-			url: 'customer-list.html'
-		},
-		{
-			id: 3,
-			icon: 'chevron_left',
-			name: 'Orders',
-			url: 'orders.html'
-		}
-	],
-
-		
-		wrapper = $('#mainMenu'),
-		content = ''
-
-		for(var i = 0; i < menuitemss.length; i++){
-
-			
-			content += '<li class="nav-item">'
-			content += '<a class="nav-link waves-effect" href="' + menuitemss[i].url + '">' + menuitemss[i].name
-			content += '<span class="sr-only"></span>'
-			content += '</a>'
-			content += '</li>'
-
-
-		}
-
-		wrapper.html(content)
-
-		localStorage.setItem('menuitemss',JSON.stringify(menuitemss))
-	}
-
-
-
 
 	app.searchProd = function(cart,id,cant,name,price,img,available){
 		//si le pasamos un valor negativo a la cantidad, se descuenta del carrito
@@ -189,7 +200,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 		app.init()
 		app.getProducts()
 		app.updatePayForm()
-		app.createMenu()
+		
 	}
 
 	app.getProducts = function(){
@@ -211,13 +222,13 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 			   //items += '<td><img src="'+n.img+'" /></td>'
 			   items += '<td><span class="qant">'+n.cant+'x </span></td>'
 			   items += '<td><h3 class="title">'+n.name+'</h3></td>'
-			   items +='<td><span class="price">$ '+n.price+'</span></td>'
+			   items +='<td><span class="price">'+currency_icon+''+n.price+'</span></td>'
 			   items +='<td> <a class="add btn-circled circled" onclick="app.updateItem('+n.id+','+n.available+')"><i class="material-icons">remove</i></a> <a onclick="app.deleteProd('+n.id+')" class="circled" ><i class="material-icons ">close</i></a></td>'
 			   items += '</tr>'
 			});
 
 			//agregar el total al carrito
-			items += '<tr><td colspan="2" class="total> <div id="submitForm"></div></td><td id="total" class="total right" colspan="3">Total : $ '+total+' </td></tr>'
+			items += '<tr><td colspan="2" class="total> <div id="submitForm"></div></td><td id="total" class="total right" colspan="3">Total : '+currency_icon+''+total+' </td></tr>'
 			wrapper.html(items)
 			$('.cart').css('left','0')
 		}
@@ -300,7 +311,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 		app.getProducts()
 		app.updatePayForm()
 		app.createProducts()
-		app.createMenu()
+		
 	})
 
 })(jQuery)

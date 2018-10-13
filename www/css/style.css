@@ -301,7 +301,7 @@ button, .button{
     /* width: 25px !important; */
     /* height: 25px !important; */
     padding: 10px 2px 0 2px;
-    background: #8d8d8d;
+    background: #A8A8A8;
     border-radius: 50%;
     color: #fff !important;
 }
@@ -322,4 +322,13 @@ button, .button{
 .total {
     font-weight: 600;
     font-size:1.3em;
+}
+
+.modal-dialog {
+    margin: 0;
+    height:100%;
+}
+
+.modal-content {
+    height: 100%;
 }

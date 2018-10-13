@@ -10,9 +10,9 @@
   <!-- Bootstrap core CSS -->
 
   <!-- Material Design Bootstrap -->
- <!--<link rel='stylesheet' href='css/foundation.min.css?ver=4.4.2'>
-  <link rel='stylesheet' href='css/ionicons.min.css'>
-  <link rel='stylesheet' href='css/ladda.min.css'>-->
+  <!--<link rel='stylesheet' href='css/foundation.min.css?ver=4.4.2'>
+  <link rel='stylesheet' href='css/ionicons.min.css'>-->
+  <link rel='stylesheet' href='css/ladda.min.css'>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/cart.css">
   <link href="css/mdb.min.css" rel="stylesheet">
@@ -52,7 +52,7 @@
 </head>
 
 
-  <body class="home-page m-scene" id="main">
+  <body class="storefront m-scene" id="main">
   <div class="m-page scene_element scene_element--fadeinup">
 
     <!-- Navbar -->
@@ -98,7 +98,6 @@
 
 
     <!--Main layout-->
-    
     <main>
       <div class="container container-fluid mt-2">
         <!--Navbar-->
@@ -140,15 +139,10 @@
           <!-- Collapsible content -->
         </nav>
         <!--/.Navbar-->
-       
+        <!--Section: Products v.3-->
+        <div id="productosWrapper" class=" large-12 columns">
 
-
-        <section class="text-center mb-4">
-            <!--Grid row-->
-            <div  id="productosWrapper"  class="row wow fadeIn">
-            </div>
-            </section>
-               <!--Grid column-->
+        </div>
         <!--Section: Products v.3-->
         <!--Pagination-->
         <nav class="d-flex justify-content-center wow hidden fadeIn">
@@ -217,7 +211,7 @@
       <div class="modal-content">
         <!--Header-->
         <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">Your Cart</h4>
+          <h4 class="modal-title" id="myModalLabel">Your cart</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
@@ -233,10 +227,10 @@
           <table class="table  table-hover">
             <thead>
               <tr>
-                <th>Qty</th>
-                <th>Product</th>
+                <th>#</th>
+                <th>Product name</th>
                 <th>Price</th>
-                <th></th>
+                <th>Remove</th>
               </tr>
             </thead>
             <tbody class="cart">
@@ -276,8 +270,8 @@
         </div>
         <!--Footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-primary hidden" data-dismiss="modal">Close</button>
-          <button class="btn btn-success">Checkout</button>
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+          <button class="btn btn-primary">Checkout</button>
         </div>
       </div>
     </div>
