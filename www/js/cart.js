@@ -124,7 +124,7 @@ var app = window.app || {},
 					content+= '</div>'*/
 
 				content += '<div class="col-4 col-sm-4 no-gutter">'
-				content += '<div class="cards productsonsale">'
+				content += '<div class="cards productsonsale" id="prod_click'+products[i].id+'">'
 				content += '<div class="view">'
 				content += '<img src="' + products[i].img + '"class="card-img-top"  alt="' + products[i].name + '">'
 				content += '<a href="product-page.html">'
@@ -147,7 +147,7 @@ var app = window.app || {},
 				content += '<h3 class="hidden">We have: <span class="stock">' + products[i].stock + '</span></h3>'
 				content += '<div class="input-group qtty-center">'
 				content += '<span class="input-group-btn">'
-				content += '<button type="button" class="btn manage-qtty hidden btn-number waves-effect waves-light grey" onclick="app.deleteProd(' +products[i].id + ')"  data-type="minus">'
+				content += '<button type="button" class="btn manage-qtty hidden btn-number waves-effect waves-light grey" onclick="app.updateItem(' + products[i].id + ',' + products[i].stock + ')"  data-type="minus">'
 				content += '<img src="icons/noun_Remove_1315086B.svg">'
 				content += '</button>'
 				content += '</span>'
@@ -179,7 +179,8 @@ var app = window.app || {},
 			producto = _.find(products, {
 				'id': id
 			}),
-			cant = 1
+			cant = 1;
+			$('body').css('opacity','0.5');
 		if (cant <= producto.stock) {
 			if (undefined != producto) {
 				if (cant > 0) {
@@ -191,8 +192,9 @@ var app = window.app || {},
 						 
 						l.stop();
 						console.log(parseInt(cant))
-						
+						$('body').css('opacity','1');
 					}, 2000)
+					 
 				} else {
 					alert('Only larger quantities are allowed to zero');
 				}
@@ -202,6 +204,7 @@ var app = window.app || {},
 		} else {
 			alert('You can not add more of this product');
 		}
+		
 	}
 
 
