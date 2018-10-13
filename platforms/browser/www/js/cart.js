@@ -147,11 +147,11 @@ var app = window.app || {},
 				content += '<h3 class="hidden">We have: <span class="stock">' + products[i].stock + '</span></h3>'
 				content += '<div class="input-group qtty-center">'
 				content += '<span class="input-group-btn">'
-				content += '<button type="button" class="btn manage-qtty hidden btn-number waves-effect waves-light grey" data-type="minus">'
+				content += '<button type="button" class="btn manage-qtty hidden btn-number waves-effect waves-light grey" onclick="app.deleteProd(' +products[i].id + ')"  data-type="minus">'
 				content += '<img src="icons/noun_Remove_1315086B.svg">'
 				content += '</button>'
 				content += '</span>'
-				content += '<input type="number" readonly name="quant[2]" class="form-control hidden input-number quantity manage-qtty"" value="0" min="0" max="100">'
+				content += '<input type="number" id="prod_'+products[i].id +'" readonly name="quant[2]" class="form-control hidden input-number quantity manage-qtty"  value="0" min="0" max="100">'
 				content += '<span class="input-group-btn">'
 				content += '<button type="button" class="btn btn-number waves-effect  submit ladda-button waves-light grey prod-' + products[i].id + '"  data-type="plus" data-style="slide-right" onclick="app.addtoCart(' + products[i].id + ');">'
 				content += '<img src="icons/noun_Plus_1807498B.svg">'
@@ -187,14 +187,17 @@ var app = window.app || {},
 						var cart = (JSON.parse(localStorage.getItem('cart')) != null) ? JSON.parse(localStorage.getItem('cart')) : {
 							items: []
 						};
-						app.searchProd(cart, producto.id, parseInt(cant), producto.name, producto.price, producto.img, producto.stock)
+						app.searchProd(cart, producto.id, parseInt(cant), producto.name, producto.price, producto.img, producto.stock);
+						 
 						l.stop();
+						console.log(parseInt(cant))
+						
 					}, 2000)
 				} else {
 					alert('Only larger quantities are allowed to zero');
 				}
 			} else {
-				alert('Oops! algo malo ocurrió, inténtalo de nuevo más tarde')
+				alert('Oops! Something we wrong, try again later')
 			}
 		} else {
 			alert('You can not add more of this product');
@@ -216,7 +219,7 @@ var app = window.app || {},
 			} else {
 				alert('You can not add more of this product')
 			}
-
+			$('#prod_'+curProd.id).val(curProd.cant);
 		} else {
 			//sino existe lo agregamos al carrito
 			var prod = {
@@ -247,21 +250,26 @@ var app = window.app || {},
 		wrapper.html('')
 
 		if (undefined == cart || null == cart || cart == '' || cart.items.length == 0) {
-			wrapper.html('<div>Youe basket is empty</div>');
+			wrapper.html('<div>Your basket is empty</div>');
 			$('.cart').css('left', '-400%')
 		} else {
 			var items = '';
 			_.forEach(cart.items, function (n, key) {
 
-				total = total + (n.cant * n.price)
+				total = total + (n.cant * n.price);
+			//var old = $('#prod_'+n.id).val();
+			//console.log('plus',parseInt(old)+parseInt(n.cant));
+			//$('#prod_'+n.id).val(old+n.cant);
+			//	console.log('n',n.id);
 				items += '<tr>'
 				//items += '<td><img src="'+n.img+'" /></td>'
 				items += '<td><span class="qant">' + n.cant + 'x </span></td>'
 				items += '<td><h3 class="title">' + n.name + '</h3></td>'
 				items += '<td><span class="price">' + currency_icon + '' + n.price + '</span></td>'
 				//  items +='<td> <a class="add btn-circled circled" onclick="app.updateItem('+n.id+','+n.available+')"><i class="material-icons">remove</i></a> <a onclick="app.deleteProd('+n.id+')" class="circled" ><i class="material-icons ">close</i></a></td>'
-				items += '<td> <a class="add btn-circled circled" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></a> <a onclick="app.deleteProd(' + n.id + ')" ><i class="ni-close"></i></a></td>'
-				items += '</tr>'
+				items += '<td> <a class="add btn-circled circled" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></a> <a class="btn-circled circled" onclick="app.deleteProd(' + n.id + ')" ><i class="material-icons ">close</i></a></td>'
+				items += '</tr>';
+				$('#prod_'+n.id).val(n.cant);
 			});
 
 			//agregar el total al carrito
@@ -300,6 +308,7 @@ var app = window.app || {},
 		var curProd = _.find(cart.items, {
 			'id': id
 		})
+		$('#prod_'+id+'').val('0');
 		_.remove(cart.items, curProd);
 		localStorage.setItem('cart', JSON.stringify(cart))
 		app.init()
@@ -355,10 +364,12 @@ var app = window.app || {},
 
 	$(document).ready(function () {
 		app.init()
-		app.getProducts()
+		
 		app.updatePayForm()
+	
 		app.createProducts()
-
+		app.getProducts()
+		app.checkItems()
 	})
 
 })(jQuery)
