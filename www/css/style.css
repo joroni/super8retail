@@ -44,7 +44,7 @@
     text-align: center;
     border-radius: 50%;
     padding: 3px;
-    margin-top: 3px;
+    margin-top:3px;
 }
 
 .navbar-brand {
@@ -97,6 +97,7 @@ body.customer-list p {
 .cards.productsonsale {
     border: 1px solid #eee;
     height: 270px;
+    background: #fff;
 }
 
 .cards.productsonsale .card-body {
@@ -109,13 +110,14 @@ body.customer-list p {
 }
 
 
-
 .cards.productsonsale input.form-control.input-number {
     height: 30px;
     font-size: 12px;
     padding: 0;
+    max-width: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
-
 .cards.productsonsale .btn .fa {
     position: relative;
     font-size: .5rem;
@@ -265,6 +267,11 @@ body.customer-list p {
     text-align: center;
 }
 
+
+.trans {
+    background-color: transparent !important;
+    background: none;
+}
 
 .noshadow {
 
