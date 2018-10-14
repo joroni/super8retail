@@ -127,7 +127,7 @@ body.customer-list p {
 
 .grey-border {
     background-color: #fff!important;
-    border: 1px solid #888 !important;
+    border: 0px solid #888 !important;
 }
 
 .cards.productsonsale .h5,
