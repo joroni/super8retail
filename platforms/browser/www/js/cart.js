@@ -24,19 +24,28 @@ var app = window.app || {},
 
 		}
 
-		$('#totalItems').text(items)
-		$('.totalAmount').text(currency_icon + ' ' + total + ' USD')
+		var total_Items = $('#totalItems');
+		total_Items.text(items);
+		//alert(items);
+		if (items == 0 ){
+			$(total_Items).hide();
+		}else{
+			$(total_Items).show();
+		}
+		$('.totalAmount').text(currency_icon + ' ' + total + ' USD');
 
 	}
 
 	app.checkItems = function () {
-		var nonzero = $(".qtty-center")
-			.closest("input");
-		var toggleShow = $(".manage-qtty");
-		if (nonzero != 0) {
-			toggleShow.removeClass("hidden");
+		var nonzero = $(".qtty-center");
+		var qinput = nonzero.closest("input")
+		var qvalue = qinput.val();
+		console.log(qvalue);
+		//var toggleItems = $(".cards.productsonsale .btn-number", qinput);
+		if (qvalue != 0) {
+			toggleItems.removeClass("hidden");
 		} else {
-			toggleShow.addClass("hidden");
+			toggleItems.addClass("hidden");
 		}
 
 	}
@@ -49,6 +58,8 @@ var app = window.app || {},
 					name: 'Denim Shirt',
 					cat: 'Sports Wear',
 					state: 'New',
+					statecolor: 'red',
+					size:'',
 					img: 'img/products/12.jpg',
 					price: 299.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
@@ -56,11 +67,13 @@ var app = window.app || {},
 				},
 				{
 					id: 2,
-					name: 'Polo Shirt',
-					cat: 'Sports Wear',
+					name: 'Drypers Mega Pack',
+					cat: 'Baby',
 					state: 'Sale',
-					img: 'img/products/13.jpg',
-					price: 199.00,
+					statecolor: 'green',
+					size:'Large x 62 pcs',
+					img: 'img/products/baby.jpg',
+					price: 503.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 					stock: 2
 				},
@@ -69,6 +82,8 @@ var app = window.app || {},
 					name: 'Cool Shirt',
 					cat: 'Out Wear',
 					state: '',
+					statecolor: '',
+					size:'',
 					img: 'img/products/14.jpg',
 					price: 99.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
@@ -76,30 +91,35 @@ var app = window.app || {},
 				},
 				{
 					id: 4,
-					name: 'Cool Shirt',
-					cat: 'Out Wear',
+					name: '137 Degrees Iced Coffee Latte with Almond Milk Drink',
+					cat: 'Coffee',
 					state: '',
-					img: 'img/products/15.jpg',
+					statecolor: '',
+					size:'3 pcs x 180 ml',
+					img: 'img/products/coffee.jpg',
 					price: 80.00,
-					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
-					stock: 1
+					desc: 'Perfect iced coffee latte with almond milk',
+					stock: 50
 				},
 				{
 					id: 5,
-					name: 'Libertad 5oz',
-					name: 'Cool Shirt',
-					cat: 'Out Wear',
-					state: '',
-					img: 'img/products/15.jpg',
-					price: 80.00,
-					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
-					stock: 2
+					name: 'Gingen Strong Ginger Formula Tea',
+					cat: 'Tea',
+					state: 'Best Seller',
+					size:	'',
+					statecolor: 'blue',
+					img: 'img/products/tea.jpg',
+					price: 440.00,
+					desc: 'Hot drink with slightly sweet and strong taste from aged quality ginger',
+					stock: 20
 				},
 				{
 					id: 6,
 					name: 'Cool Shirt',
 					cat: 'Out Wear',
 					state: '',
+					statecolor: '',
+					size:'3 pcs x 180 ml',
 					img: 'img/products/15.jpg',
 					price: 80.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
@@ -112,6 +132,7 @@ var app = window.app || {},
 		for (var i = 0; i < products.length; i++) {
 
 			if (products[i].stock > 0) {
+				
 
 				/*	content+= '<div class="coin-wrapper">'
 					content+= '		<img src="'+products[i].img+'" alt="'+products[i].name+'">'
@@ -131,15 +152,15 @@ var app = window.app || {},
 				content += '<div class="mask rgba-white-slight"></div>'
 				content += '</a>'
 				content += '</div>'
-				content += '<div class="card-body text-center">'
-				content += '<a href="" class="grey-text truncate">'
-				content += '<h5>Shirt</h5>'
+				content += '<div class="card-body text-center parent">'
+				content += '<a href="#" class="grey-text truncate">'
+				content += '<h5 class="category">'+ products[i].cat + '</h5>'
 				content += '</a>'
 				content += '<div class="truncate">'
 				content += '<h5>'
 				content += '<a href="" class="dark-grey-text"> ' + products[i].name + '</a>'
 				content += '</h5>'
-				content += '<p class="badge badge-pill danger-color">'+ products[i].state + '</p>'
+				content += '<p class="badge statebadge badge-pill '+ products[i].statecolor + '">'+ products[i].state + '</p>'
 				content += '</div>'
 				content += '<h4 class=" blue-text">'
 				content += '<span>' + currency_icon + '' + products[i].price + ' </span>'
@@ -147,14 +168,14 @@ var app = window.app || {},
 				content += '<h3 class="hidden">We have: <span class="stock">' + products[i].stock + '</span></h3>'
 				content += '<div class="input-group qtty-center">'
 				content += '<span class="input-group-btn">'
-				content += '<button type="button" class="btn manage-qtty hidden btn-number waves-effect waves-light grey" onclick="app.updateItem(' + products[i].id + ',' + products[i].stock + ')"  data-type="minus">'
-				content += '<img src="icons/noun_Remove_1315086B.svg">'
+				content += '<button type="button" class="btn manage-qtty  btn-number waves-effect waves-light  grey-border" onclick="app.updateItem(' + products[i].id + ',' + products[i].stock + ')"  data-type="minus">'
+				content += '<img src="icons/noun_Remove_1315086.svg">'
 				content += '</button>'
 				content += '</span>'
-				content += '<input type="number" id="prod_'+products[i].id +'" readonly name="quant[2]" class="form-control hidden input-number quantity manage-qtty"  value="0" min="0" max="100">'
+				content += '<input type="number" id="prod_'+products[i].id +'" readonly name="quant['+products[i].id +']" class="form-control input-number quantity manage-qtty"  value="0" min="0" max="100">'
 				content += '<span class="input-group-btn">'
-				content += '<button type="button" class="btn btn-number waves-effect  submit ladda-button waves-light grey prod-' + products[i].id + '"  data-type="plus" data-style="slide-right" onclick="app.addtoCart(' + products[i].id + ');">'
-				content += '<img src="icons/noun_Plus_1807498B.svg">'
+				content += '<button type="button" class="btn btn-number waves-effect  submit ladda-button waves-light grey-border prod-' + products[i].id + '"  data-type="plus" data-style="slide-right" onclick="app.addtoCart(' + products[i].id + ');">'
+				content += '<img src="icons/noun_Plus_1807498.svg">'
 				content += '</button>'
 				content += '</span>'
 				content += '</div>'
@@ -260,17 +281,14 @@ var app = window.app || {},
 			_.forEach(cart.items, function (n, key) {
 
 				total = total + (n.cant * n.price);
-			//var old = $('#prod_'+n.id).val();
-			//console.log('plus',parseInt(old)+parseInt(n.cant));
-			//$('#prod_'+n.id).val(old+n.cant);
-			//	console.log('n',n.id);
+			
 				items += '<tr>'
 				//items += '<td><img src="'+n.img+'" /></td>'
 				items += '<td><span class="qant">' + n.cant + 'x </span></td>'
 				items += '<td><h3 class="title">' + n.name + '</h3></td>'
 				items += '<td><span class="price">' + currency_icon + '' + n.price + '</span></td>'
 				//  items +='<td> <a class="add btn-circled circled" onclick="app.updateItem('+n.id+','+n.available+')"><i class="material-icons">remove</i></a> <a onclick="app.deleteProd('+n.id+')" class="circled" ><i class="material-icons ">close</i></a></td>'
-				items += '<td> <a class="add btn-circled circled" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></a> <a class="btn-circled circled" onclick="app.deleteProd(' + n.id + ')" ><i class="material-icons ">close</i></a></td>'
+				items += '<td width="100"> <a class="add btn-circled circled" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></a> <a class="btn-circled circled" onclick="app.deleteProd(' + n.id + ')" ><i class="material-icons ">close</i></a></td>'
 				items += '</tr>';
 				$('#prod_'+n.id).val(n.cant);
 			});
@@ -367,12 +385,13 @@ var app = window.app || {},
 
 	$(document).ready(function () {
 		app.init()
+		//app.checkItems()
 		
 		app.updatePayForm()
 	
 		app.createProducts()
 		app.getProducts()
-		app.checkItems()
+	
 	})
 
 })(jQuery)

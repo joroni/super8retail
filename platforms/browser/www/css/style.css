@@ -16,7 +16,7 @@
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    font-size: 24px;
+ /*   font-size: 24px;*/
     /* Preferred icon size */
     display: inline-block;
     line-height: 1;
@@ -114,6 +114,7 @@ body.customer-list p {
     height: 30px;
     font-size: 12px;
     padding: 0;
+    background:#fff;
     max-width: 40px;
     margin-left: 5px;
     margin-right: 5px;
@@ -123,22 +124,31 @@ body.customer-list p {
     font-size: .5rem;
 }
 
+
+.grey-border {
+    background-color: #fff!important;
+    border: 1px solid #888 !important;
+}
+
 .cards.productsonsale .h5,
 .cards.productsonsale h5 {
     font-size: 1rem !important;
     font-weight: 400;
 }
 
-
+.parent{
+    width:120px;
+}
 .truncate {
-    width: 110px;
+    
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+
 .truncate-list {
-    width: 270px;
+   
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -304,16 +314,16 @@ body.customer-list p {
 button, .button{
     margin: 0 !important;
 }
+
+
 .circled {
-    /* width: 25px !important; */
-    /* height: 25px !important; */
-    padding: 10px 2px 0 2px;
+    width: 25px !important;
+    height: 25px !important;
+    padding: 7px 6px 4px 6px;
     background: #A8A8A8;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     color: #fff !important;
 }
-
-
 
 .cart:before {
     border-color: none !important;
@@ -338,4 +348,14 @@ button, .button{
 
 .modal-content {
     height: 100%;
+}
+
+.badge:empty {
+    display: inline-block;
+    height: 15px;
+    opacity: 0;
+}
+
+h5.category{
+    font-size: 0.8em !important;
 }
