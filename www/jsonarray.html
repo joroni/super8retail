@@ -1,0 +1,63 @@
+<script>
+    /*  var productsList = localStorage.getItem("products");
+         products = [
+                    {id: 1, name: 'product 1', price:'150'},
+                    {id: 2, name: 'product 2' , price:'250'},
+                    {id: 3, name: 'tag 3', price:'350'}, 
+                    {id: 99, name: 'tag 99', price:'450'},
+                    {id: 100, name: 'tag 100', price:'550'}
+                 ];
+
+        var SearchTag = function (name) {
+            var i = null;
+            for (i = 0; products.length > i; i += 1) {
+                if (products[i].name === name) {
+                    return products[i];
+                }
+            }
+
+            return null;
+        };
+
+        var product = SearchTag('tag 3');
+        if (product)
+        {
+            alert(product.id + ":" + product.name + "- price: "+ product.price);
+
+        }*/
+
+
+    var skusList = localStorage.getItem("products");
+    skus = JSON.parse(skusList);
+    console.log(skus);
+
+    var SearchTag = function (sku) {
+        var i = null;
+        for (i = 0; skus.length > i; i += 1) {
+            if (skus[i].sku === sku) {
+                return skus[i];
+            }
+        }
+
+        return null;
+    };
+
+    var product = SearchTag('A0000001');
+    if (product) {
+
+        var cat = product.cat;
+        var desc = product.desc;
+        var id = product.id;
+        var img = product.img;
+        var name = product.name;
+        var price = product.price;
+        var size = product.size;
+        var sku = product.sku;
+        var state = product.state;
+        var statecolor = product.statecolor;
+        var stock = product.stock;
+
+        alert(product.id + ":" + product.name + "- price: " + product.price);
+
+    }
+</script>

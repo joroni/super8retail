@@ -136,6 +136,11 @@ body.customer-list p {
     font-weight: 400;
 }
 
+
+del {
+    color:#8a8a8a;
+}
+
 .parent{
     width:120px;
 }

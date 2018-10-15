@@ -1,7 +1,7 @@
 var app = window.app || {},
 	business_paypal = '', // aquí va tu correo electrónico de paypal
 	currency_icon = '₱';
-
+	localStorage.setItem("myCurrency", currency_icon);
 (function ($) {
 	'use strict';
 
@@ -55,72 +55,84 @@ var app = window.app || {},
 
 		var products = [{
 					id: 1,
+					sku:'A0000001',
 					name: 'Denim Shirt',
 					cat: 'Sports Wear',
 					state: 'New',
 					statecolor: 'red',
 					size:'',
 					img: 'img/products/12.jpg',
+					oldprice:'',
 					price: 299.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 					stock: 4
 				},
 				{
 					id: 2,
+					sku:'A0000002',
 					name: 'Drypers Mega Pack',
 					cat: 'Baby',
 					state: 'Sale',
 					statecolor: 'green',
 					size:'Large x 62 pcs',
 					img: 'img/products/baby.jpg',
+					oldprice:630.00,
 					price: 503.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 					stock: 2
 				},
 				{
 					id: 3,
+					sku:'A0000003',
 					name: 'Cool Shirt',
 					cat: 'Out Wear',
 					state: '',
 					statecolor: '',
 					size:'',
 					img: 'img/products/14.jpg',
+					oldprice:'',
 					price: 99.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 					stock: 1
 				},
 				{
 					id: 4,
+					sku:'A0000004',
 					name: '137 Degrees Iced Coffee Latte with Almond Milk Drink',
 					cat: 'Coffee',
 					state: '',
 					statecolor: '',
 					size:'3 pcs x 180 ml',
 					img: 'img/products/coffee.jpg',
+					oldprice:'',
 					price: 80.00,
 					desc: 'Perfect iced coffee latte with almond milk',
 					stock: 50
 				},
 				{
 					id: 5,
-					name: 'Gingen Strong Ginger Formula Tea',
+					sku: 'A0000005'
+,					name: 'Gingen Strong Ginger Formula Tea',
 					cat: 'Tea',
 					state: 'Best Seller',
 					size:	'',
 					statecolor: 'blue',
 					img: 'img/products/tea.jpg',
+					oldprice:'',
 					price: 440.00,
 					desc: 'Hot drink with slightly sweet and strong taste from aged quality ginger',
 					stock: 20
 				},
 				{
 					id: 6,
+					sku: 'A0000006',
 					name: 'Cool Shirt',
 					cat: 'Out Wear',
 					state: '',
 					statecolor: '',
 					size:'3 pcs x 180 ml',
 					img: 'img/products/15.jpg',
+					oldprice:'',
 					price: 80.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 					stock: 8
@@ -148,7 +160,7 @@ var app = window.app || {},
 				content += '<div class="cards productsonsale" id="prod_click'+products[i].id+'">'
 				content += '<div class="view">'
 				content += '<img src="' + products[i].img + '"class="card-img-top"  alt="' + products[i].name + '">'
-				content += '<a href="product-page.html">'
+				content += '<a href="product-page.html" onclick=getSKU("'+products[i].sku+'") data-sku="'+products[i].sku+'">'
 				content += '<div class="mask rgba-white-slight"></div>'
 				content += '</a>'
 				content += '</div>'
@@ -169,13 +181,13 @@ var app = window.app || {},
 				content += '<div class="input-group qtty-center">'
 				content += '<span class="input-group-btn">'
 				content += '<button type="button" class="btn manage-qtty  btn-number waves-effect waves-light  grey-border" onclick="app.updateItem(' + products[i].id + ',' + products[i].stock + ')"  data-type="minus">'
-				content += '<img src="icons/noun_Remove_1807498-rounded.svg">'
+				content += '<img src="icons/noun_Remove_1807498-rounded-green.svg">'
 				content += '</button>'
 				content += '</span>'
 				content += '<input type="number" id="prod_'+products[i].id +'" readonly name="quant['+products[i].id +']" class="form-control input-number quantity manage-qtty"  value="0" min="0" max="100">'
 				content += '<span class="input-group-btn">'
 				content += '<button type="button" class="btn btn-number waves-effect  submit ladda-button waves-light grey-border prod-' + products[i].id + '"  data-type="plus" data-style="slide-right" onclick="app.addtoCart(' + products[i].id + ');">'
-				content += '<img src="icons/noun_Plus_1807498-rounded.svg">'
+				content += '<img src="icons/noun_Plus_1807498-rounded-green.svg">'
 				content += '</button>'
 				content += '</span>'
 				content += '</div>'
