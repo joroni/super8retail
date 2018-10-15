@@ -200,12 +200,23 @@ function productsPage() {
         $("#thisBadges").html('<a href="">' +
             '<span class="badge ' + statecolor + ' mr-1">' + state + '</span>' +
             '</a>');
+        $("#thisStock").html("In Stock: " + stock);
         $("#thisLead").html('<span class="mr-1">' +
             '<del>' + currency + '' + oldprice + '</del>' +
             '</span>' +
             '<span>' + currency + '' + price + '</span>')
-            $("#thisDesc").html(desc);
+        $("#thisDesc").html(desc);
+   /* $("#thisAddCart").html('<input type="number" value="1" id="prod_'+id +'" readonly name="quant['+id+']"  aria-label="Search" class="form-control" style="width: 100px">'+
+    '<button class="btn btn-primary btn-md my-0 btn-number waves-effect  submit ladda-button waves-light" type="button"  onclick="app.addtoCart(' +id + ');">Add to cart'+
+      '<i class="fa fa-shopping-cart ml-1"></i>'+
+   '</button>');*/
 
+   $("#footerBtns").html('<div class="btn-group" role="group" aria-label="Basic">'+
+   '<button type="button" class="btn btn-success manage-qtty  btn-number waves-effect waves-light" onclick="app.updateItem('+id+','+stock+')" data-type="minus">-</button>'+
+   '<input type="number"id="prod_'+id+'" readonly="" name="quant['+id+']" class="form-control input-number quantity manage-qtty" value="0" min="0" max="100" style="height:70px; width:80px;">'+
+   '<button type="button" class="btn btn-success btn-number waves-effect  submit ladda-button waves-light prod-'+id+' data-type="plus" data-style="slide-right" onclick="app.addtoCart('+id+');">+</button>'+
+   //'<button type="button" class="btn btn-number waves-effect  submit ladda-button waves-light grey-borders btn-success prod-'+id+'" data-type="plus" data-style="slide-right" onclick="app.addtoCart('+id+');">Add to Cart</button>');
+'<a class="btn btn-success waves-effect waves-light" href="#" role="button" data-toggle="modal" data-target="#modalCart">View Cart</a></div>');
 
     }
 

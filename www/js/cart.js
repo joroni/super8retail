@@ -111,8 +111,8 @@ var app = window.app || {},
 				},
 				{
 					id: 5,
-					sku: 'A0000005'
-,					name: 'Gingen Strong Ginger Formula Tea',
+					sku: 'A0000005',
+					name: 'Gingen Strong Ginger Formula Tea',
 					cat: 'Tea',
 					state: 'Best Seller',
 					size:	'',
@@ -140,7 +140,8 @@ var app = window.app || {},
 			],
 			wrapper = $('#productosWrapper'),
 			content = ''
-
+			//wrapper2 = $('#footerBtns');
+			//content2 = ''
 		for (var i = 0; i < products.length; i++) {
 
 			if (products[i].stock > 0) {
@@ -195,11 +196,18 @@ var app = window.app || {},
 				content += '</div>'
 				content += '</div>'
 
+
+
+
+			
+
 			}
 
 		}
 
-		wrapper.html(content)
+		wrapper.html(content);
+
+		//wrapper2.html(content2);
 
 		localStorage.setItem('products', JSON.stringify(products))
 	}
