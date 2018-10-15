@@ -364,3 +364,33 @@ button, .button{
 h5.category{
     font-size: 0.8em !important;
 }
+
+
+.h-40 {
+    height: 40px !important;
+} 
+
+.btn-blue-grey.lighten-5 {
+    background-color: #eceff1!important;
+    background:#eceff1!important;
+    color: #212529 !important
+}
+
+
+
+.cart .price {
+    display: block;
+    float: left;
+  }
+  .cart #total {
+    height: auto !important;
+    background:transparent;
+    color: #333;
+    font-size: 1em;
+  }
+  .cart .title {
+      color: #25A187;
+      padding-left: 0px;
+      float: left;
+      font-size: 14px;
+  }

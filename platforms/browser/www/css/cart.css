@@ -299,7 +299,7 @@ a.cart-icon {
 }
 .cart .title {
   color: #25A187;
-  padding-left: 15px;
+  padding-left: 0px;
   float: left;
   font-size: 14px;
 }

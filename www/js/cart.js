@@ -308,8 +308,12 @@ var app = window.app || {},
 				items += '<td><h3 class="title">' + n.name + '</h3></td>'
 				items += '<td><span class="price">' + currency_icon + '' + n.price + '</span></td>'
 				//  items +='<td> <a class="add btn-circled circled" onclick="app.updateItem('+n.id+','+n.available+')"><i class="material-icons">remove</i></a> <a onclick="app.deleteProd('+n.id+')" class="circled" ><i class="material-icons ">close</i></a></td>'
-				items += '<td width="100"> <a class="add btn-circled circled" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></a> <a class="btn-circled circled" onclick="app.deleteProd(' + n.id + ')" ><i class="material-icons ">close</i></a></td>'
-				items += '</tr>';
+			//	items += '<td width="100"> <a class="add btn-circled circled" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></a> <a class="btn-circled circled" onclick="app.deleteProd(' + n.id + ')" ><i class="material-icons ">close</i></a></td>'
+			items += '<td><div class="btn-group" role="group" aria-label="Edit Cart">'
+			items +='<button type="button" class="btn btn-sm btn-blue-grey lighten-5 pl-3 pr-3" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></button>'
+			items +='<button type="button" class="btn btn-sm btn-blue-grey lighten-5 pl-3 pr-3" onclick="app.deleteProd('+n.id+')"><i class="material-icons">close</i></button>'
+			items +='</div></td>'
+			items += '</tr>';
 				$('#prod_'+n.id).val(n.cant);
 			});
 

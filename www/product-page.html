@@ -19,11 +19,30 @@
   <!-- Your custom styles (optional) -->
   <link href="css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="css/font-awesome.min.css">
- 
+
   <link rel="stylesheet" href="css/nifonts.css">
+  
   <style>
   .h3, h3 {
-   font-size: 1.17rem;
+   font-size: 1.17em;
+}
+
+
+.cart .price {
+  display: block;
+  float: left;
+}
+.cart #total {
+  height: auto !important;
+  background:transparent;
+  color: #333;
+  font-size: 1em;
+}
+.cart .title {
+    color: #25A187;
+    padding-left: 0px;
+    float: left;
+    font-size: 14px;
 }
 
 </style>
@@ -169,7 +188,7 @@
             </button>
           </div>
           <!--Body-->
-          <div class="modal-body">
+          <div class="modal-body pt-0">
             <div class="row">
             <!-- <a class="cart-icon">
                               <span id="totalItems">0</span>
@@ -177,7 +196,7 @@
                           </a>
                           <div class="cart"></div>-->
             <table class="table  table-hover">
-              <thead>
+              <thead class="hidden">
                 <tr>
                   <th>Qty</th>
                   <th>Product</th>
