@@ -1,6 +1,7 @@
 var backtoprev = $(".backtoprev"),
     btnlogin = $("#btnLogin"),
     btnregister = $("#btnRegister"),
+    btncheckout = $(".bt-checkout");
     activeSKU = sessionStorage.getItem("ThisSKU"),
     currency = localStorage.getItem("myCurrency");
 
@@ -109,8 +110,53 @@ btnregister.click(function () {
 });
 
 
+btncheckout.click(function(){
+    window.location.href = "customer-information.html";
+})
+
+/************************ */
+function showOrders() {
+    var myObj, i, j, items = "";
+   /* myObj = {
+        "name": "John",
+        "age": 30,
+        "menuitems": [{
+                "name": "Home",
+                "url": "index.html"
+            },
+            {
+                "name": "Acount",
+                "url": "user.html"
+            },
+            {
+                "name": "Customers",
+                "url": "customer-list.html"
+            },
+            {
+                "name": "Orders",
+                "url": "orders.html"
+            },
+            {
+                "name": "Store",
+                "url": "storegroup.html"
+            }
+        ]
+    }*/
+var listItems =JSON.parse(localStorage.getItem("po"));
+    myObj = listItems;
+    for (i in myObj.menuitems) {
+        items += '<li class="nav-item"><a class="nav-link waves-effect" href="' + myObj.menuitems[i].url + '">' + myObj.menuitems[i].name + '</li>';
+        /* for (j in myObj.menuitems[i].models) {
+             items += myObj.menuitems[i].models[j] + "<li class='hidden'>";
+         }*/
+    }
+
+    $("#mainOrders").html(items);
 
 
+}
+
+/************************************* */
 
 function showMenu() {
     var myObj, i, j, items = "";
@@ -226,6 +272,7 @@ function productsPage() {
 $(document).ready(function () {
 
     showMenu();
+    showOrders();
     currency_icon = '₱';
     localStorage.setItem("myCurrency", currency_icon);
 

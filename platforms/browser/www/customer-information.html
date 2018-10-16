@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="vendor/csstricks/assets/css/keyframes.css">
+    <link rel="stylesheet" href="vendor/csstricks/assets/css/pageTransitions.css">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="vendor/csstricks/assets/css/keyframes.css">
+    <link rel="stylesheet" href="vendor/csstricks/assets/css/pageTransitions.css">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+
+<body class="checkout-page grey lighten-3 m-scene" id="main">
+
+    <div class="m-page scene_element scene_element--fadeinup">
+
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+            <div class="container">
+
+                <!-- Brand -->
+                <a class="navbar-brand waves-effects backtoprev" href="#">
+                    <i class="material-icons fa-2x">chevron_left</i>
+                </a>
+
+                <!-- Collapse -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Links -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <!-- Left -->
+                    <ul class="navbar-nav mr-auto" id="mainMenu">
+
+                    </ul>
+
+                    <!-- Right 
+                        <ul class="navbar-nav nav-flex-icons">
+                          <li class="nav-item">
+                            <a class="nav-link waves-effect">
+                              <span class="badge red z-depth-1 mr-1"> 1 </span>
+                              <i class="fa fa-shopping-cart"></i>
+                              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+                            </a>
+                          </li>
+            
+                        </ul>-->
+
+                </div>
+
+            </div>
+        </nav>
+        <!-- Navbar -->
+
+
+        <!--Main layout-->
+        <main class="mt-5 pt-4">
+            <div class="container wow fadeIns">
+
+
+                <form id="test" action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" name="name" id="name" />
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="check">Offline</label>
+                        <input type="checkbox" name="check" value="yes" checked/>
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="select">Select your favorite JavaScript framework</label>
+                        <select name="select" class="form-control">
+                            <option value="none" selected="selected">None</option>
+                            <option value="jquery">jQuery</option>
+                            <option value="angularjs">Angular</option>
+                            <option value="mine">Mine, of course!</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes</label>
+                        <textarea class="form-control" name="notes" rows="5" cols="30"></textarea>
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="email">Email</label>
+                        <input class="form-control" type="text" name="email" id="email" />
+                    </div>
+                    <input id="timestamp" name="timestamp" value=""  class="hidden"/>
+                    <div class="form-group hidden">
+                        <label for="password">Password</label>
+                        <input class="form-control" type="password" name="password" id="password" />
+                    </div>
+                    <p>
+                        <button type="submit" id="confirm" class="btn btn-primary btn-block">Confirm</button>
+                    </p>
+
+                    <p>
+                        <button type="button" id="sync" class="enableOnInput btn btn-primary hidden btn-block">Save</button>
+                    </p>
+                </form>
+            </div>
+            <pre id="output"></pre>
+            <div id="log"></div>
+        </main>
+
+        <!--Main layout-->
+        <!--Footer-->
+
+
+        <!--Footer-->
+        <footer class="page-footer hidden fixed-bottom text-center font-small mt-4">
+
+            <!--Call to action-->
+            <div class="container-fluid pt-2 pb-2 white" id="footerBtns">
+                <button class="btn btn-primary btn-checkout btn-lg btn-block" type="submit">Continue to checkout</button>
+
+            </div>
+
+            <!--/.Call to action-->
+
+
+
+        </footer>
+        <!--/.Footer-->
+
+
+
+    </div>
+    <script>
+        (function () {
+            function toJSONString(form) {
+                var date = new Date();
+                var timestamp = date.getTime();
+                var obj = {};
+                var elements = form.querySelectorAll("input, select, textarea");
+                for (var i = 0; i < elements.length; ++i) {
+                    var element = elements[i];
+                    var name = element.name;
+                    var value = element.value;
+                    document.getElementById("timestamp").value = timestamp;
+
+                    if (name) {
+                        obj[name] = value;
+                    }
+                }
+
+                return JSON.stringify(obj);
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                var form = document.getElementById("test");
+                var output = document.getElementById("output");
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    var json1 = toJSONString(this);
+                    output.innerHTML = json1;
+                    //  alert(json1);
+                    localStorage.setItem("muPO", json1);
+                   /* var json1 = JSON.parse(localStorage.getItem("muPO"));
+                    var json2 = JSON.parse(localStorage.getItem("cart"));
+                    var finalObj = [...json1, ...json2]
+                    alert(finalObj);*/
+                }, false);
+
+            });
+
+        })();
+    </script>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
+
+    <script src='js/lodash.min.js'></script>
+    <script src='js/spin.min.js'></script>
+    <script src='js/ladda.min.js'></script>
+
+
+
+    <script src="js/cart.js"></script>
+    <script src="vendor/csstricks/assets/js/jquery.smoothState.min.js"></script>
+    <script src="vendor/csstricks/assets/js/main.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/customer.js"></script>
+
+
+    <script>
+
+        $('#confirm').click(function () {
+            $('.enableOnInput').removeClass('hidden');
+        });
+
+        $("#sync").click(function () {
+            var object1 = JSON.parse(localStorage.getItem("muPO"));
+            var object2 =JSON.parse( localStorage.getItem("cart"));
+
+            // Merge object2 into object1
+            $.extend(object1, object2);
+
+            // Assuming JSON.stringify - not available in IE<8
+            $("#log").append(JSON.stringify(object1));
+            localStorage.setItem("purchaseOrder",JSON.stringify(object1) );
+        })
+    </script>
+
+    <!-- Initializations -->
+    <!-- Initializations -->
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+        // SideNav Button Initialization
+        // $(".button-collapse").sideNav();
+        // SideNav Scrollbar Initialization
+        //var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+        //Ps.initialize(sideNavScrollbar);
+    </script>
+</body>
+
+</html>
