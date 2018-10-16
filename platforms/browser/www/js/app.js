@@ -1,7 +1,7 @@
 var backtoprev = $(".backtoprev"),
     btnlogin = $("#btnLogin"),
     btnregister = $("#btnRegister"),
-    btncheckout = $(".bt-checkout");
+    btncheckout = $(".btn-checkout");
     activeSKU = sessionStorage.getItem("ThisSKU"),
     currency = localStorage.getItem("myCurrency");
 
@@ -115,47 +115,115 @@ btncheckout.click(function(){
 })
 
 /************************ */
-function showOrders() {
-    var myObj, i, j, items = "";
-   /* myObj = {
-        "name": "John",
-        "age": 30,
-        "menuitems": [{
-                "name": "Home",
-                "url": "index.html"
-            },
-            {
-                "name": "Acount",
-                "url": "user.html"
-            },
-            {
-                "name": "Customers",
-                "url": "customer-list.html"
-            },
-            {
-                "name": "Orders",
-                "url": "orders.html"
-            },
-            {
-                "name": "Store",
-                "url": "storegroup.html"
-            }
-        ]
-    }*/
-var listItems =JSON.parse(localStorage.getItem("po"));
-    myObj = listItems;
+/*function showOrders() {
+    var myObj2, i, j, items = "";
+   myObj = {
+    "name": "Ray",
+    "check": "yes",
+    "select": "none",
+    "notes": "",
+    "email": "",
+    "timestamp": "1539655058686",
+    "password": "",
+    "items": [{
+        "id": 3,
+        "cant": 1,
+        "name": "Cool Shirt",
+        "price": 99,
+        "img": "img/products/14.jpg",
+        "available": 1
+    }, {
+        "id": 5,
+        "cant": 2,
+        "name": "Gingen Strong Ginger Formula Tea",
+        "price": 440,
+        "img": "img/products/tea.jpg",
+        "available": 20
+    }]
+}
+    var listItems =localStorage.getItem("purchaseOrder");
+    console.log(listItems);
+   // myObj = listItems;
+   var myObj, i, j, items = "";
+   myObj = {
     for (i in myObj.menuitems) {
-        items += '<li class="nav-item"><a class="nav-link waves-effect" href="' + myObj.menuitems[i].url + '">' + myObj.menuitems[i].name + '</li>';
+       // items += '<li class="nav-item"><a class="nav-link waves-effect" href="' + myObj.menuitems[i].name + '">' + myObj.menuitems[i].name + '</li>';
+       
+       
+       items += '<a href="storefront.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">'
+       items += '<div>'
+       items += '  <div class="d-flex w-100 justify-content-between">'
+       items += '    <h5 class="h5 mb-1 truncate-list" style="color:green;">'+ myObj.menuitems[i].name +'</h5>'
+       items += '  </div>'
+       items += '  <p class="mb-1 truncate-list">Up to 50% Discount</p>'
+       items += '</div>'
+       items += '<i class="material-icons fa-2x">chevron_right</i>'
+       items += '</a>'
+       */
+
+       /* for (j in myObj.menuitems[i].models) {
+             items += myObj.menuitems[i].models[j] + "<li class='hidden'>";
+         }*/
+  /*  }
+
+    $("#mainOrders").html(items);
+
+
+   }*/
+
+
+
+
+
+   function showOrders() {
+    var myObj, i, j, item = "";
+    myObj = {
+        "name": "Ray",
+        "check": "yes",
+        "select": "none",
+        "notes": "",
+        "email": "",
+        "timestamp": "1539655058686",
+        "password": "",
+        "items": [{
+            "id": 3,
+            "cant": 1,
+            "name": "Cool Shirt",
+            "price": 99,
+            "img": "img/products/14.jpg",
+            "available": 1
+        }, {
+            "id": 5,
+            "cant": 2,
+            "name": "Gingen Strong Ginger Formula Tea",
+            "price": 440,
+            "img": "img/products/tea.jpg",
+            "available": 20
+        }]
+    }
+    for (i in myObj.items) {
+
+        item += '<a href="storefront.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">'
+        item += '<div>'
+        item += '  <div class="d-flex w-100 justify-content-between">'
+        //item += '    <h5 class="h5 mb-1 truncate-list" style="color:green;">'+ myObj.items[i].timestamp +'</h5>'
+        item += '    <h5 class="h5 mb-1 truncate-list" style="color:green;">'+ myObj.items[i].name +'</h5>'
+        item += '  </div>'
+        item += '  <p class="mb-1 truncate-list">'+ myObj.items[i].name +'</p>'
+        item += '</div>'
+        item += '<i class="material-icons fa-2x">chevron_right</i>'
+        item += '</a>'
+
+      //  items += '<li class="nav-item"><a class="nav-link waves-effect" href="' + myObj.menuitems[i].url + '">' + myObj.menuitems[i].name + '</li>';
         /* for (j in myObj.menuitems[i].models) {
              items += myObj.menuitems[i].models[j] + "<li class='hidden'>";
          }*/
     }
 
-    $("#mainOrders").html(items);
+    $("#mainOrders").html(item);
 
 
 }
-
 /************************************* */
 
 function showMenu() {
