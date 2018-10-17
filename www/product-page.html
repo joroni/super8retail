@@ -53,16 +53,16 @@
   <div class="m-page scene_element scene_element--fadeinright">
 
     <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar trans noshadow">
       <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effects backtoprev" href="#">
+        <a class="navbar-brand waves-effects backtoprev " href="#">
           <i class="material-icons fa-2x">chevron_left</i>
         </a>
 
         <!-- Collapse -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <button class="navbar-toggler hidden" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -75,17 +75,7 @@
 
           </ul>
 
-          <!-- Right 
-              <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item">
-                  <a class="nav-link waves-effect">
-                    <span class="badge red z-depth-1 mr-1"> 1 </span>
-                    <i class="fa fa-shopping-cart"></i>
-                    <span class="clearfix d-none d-sm-inline-block"> Cart </span>
-                  </a>
-                </li>
-  
-              </ul>-->
+         
 
         </div>
 
@@ -182,10 +172,17 @@
         <div class="modal-content">
           <!--Header-->
           <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Your Cart</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
+             <!-- Brand -->
+          <a class="navbar-brand waves-effects backtoprev" href="#">
+              <i aria-hidden="true" class="material-icons fa-2x">chevron_left</i>
+            </a>
+    
+            <h4 class="modal-title hidden" id="myModalLabel">Your Cart</h4>
+            <!--button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             
+         
+            
+            </button>--> 
           </div>
           <!--Body-->
           <div class="modal-body pt-0">

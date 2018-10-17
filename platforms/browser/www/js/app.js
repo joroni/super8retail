@@ -3,7 +3,8 @@ var backtoprev = $(".backtoprev"),
     btnregister = $("#btnRegister"),
     btncheckout = $(".btn-checkout");
     activeSKU = sessionStorage.getItem("ThisSKU"),
-    currency = localStorage.getItem("myCurrency");
+    currency = localStorage.getItem("myCurrency"),
+  
 
 
 function showQuantity() {
@@ -187,7 +188,7 @@ btncheckout.click(function(){
 
    function showOrders() {
     var myObj, i, j, item = "";
-    myObj = {
+    myObj = [{
         "name": "Ray",
         "check": "yes",
         "select": "none",
@@ -199,6 +200,7 @@ btncheckout.click(function(){
             "id": 3,
             "cant": 1,
             "name": "Cool Shirt",
+            "oldprice": 99,
             "price": 99,
             "img": "img/products/14.jpg",
             "available": 1
@@ -210,7 +212,7 @@ btncheckout.click(function(){
             "img": "img/products/tea.jpg",
             "available": 20
         }]
-    }
+    }]
     for (i in myObj.items) {
 
         item += '<a href="storefront.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">'
@@ -302,21 +304,29 @@ function productsPage() {
     };
 
     var product = SearchTag(activeSKU);
+    oldpricing = '';
     if (product) {
+        var oldprice = product.oldprice;
+        if(oldprice != 0 || oldprice != '') {
+            oldpricing = currency +''+oldprice;
+       }else {
+           oldpricing = '';
+       }
 
         var cat = product.cat;
         var desc = product.desc;
         var id = product.id;
         var img = product.img;
         var name = product.name;
-        var oldprice = product.oldprice;
+     
+       
         var price = product.price;
         var size = product.size;
         var sku = product.sku;
         var state = product.state;
         var statecolor = product.statecolor;
         var stock = product.stock;
-        var currency = localStorage.getItem("myCurrency");
+       // var currency = localStorage.getItem("myCurrency");
 
         // console.log(cat+"|"+desc+"|"+id+"|"+img+"|"+name+"|"+price+"|"+size);
         $("#thisName").html(name);
@@ -326,7 +336,7 @@ function productsPage() {
             '</a>');
         $("#thisStock").html("In Stock: " + stock);
         $("#thisLead").html('<span class="mr-1">' +
-            '<del>' + currency + '' + oldprice + '</del>' +
+            '<del>' +oldpricing + '</del>' +
             '</span>' +
             '<span>' + currency + '' + price + '</span>')
         $("#thisDesc").html(desc);
@@ -349,7 +359,7 @@ function productsPage() {
 
 
 $(document).ready(function () {
-    showQuantity();
+   // showQuantity();
     showMenu();
     showOrders();
     currency_icon = '₱';

@@ -36,7 +36,7 @@ localStorage.setItem("myCurrency", currency_icon);
 
 	}
 
-	app.checkItems = function () {
+/*	app.checkItems = function () {
 		var nonzero = $(".qtty-center");
 		var qinput = nonzero.closest("input")
 		var qvalue = qinput.val();
@@ -48,7 +48,7 @@ localStorage.setItem("myCurrency", currency_icon);
 			toggleItems.addClass("hidden");
 		}
 
-	}
+	}*/
 
 	app.createProducts = function () {
 
@@ -139,11 +139,17 @@ localStorage.setItem("myCurrency", currency_icon);
 				}
 			],
 			wrapper = $('#productosWrapper'),
-			content = ''
-	
+			content = '',
+			oldpricing = ''
 		for (var i = 0; i < products.length; i++) {
-
+		
 			if (products[i].stock > 0) {
+
+				if(products[i].oldprice != 0 || products[i].oldprice != '') {
+					 oldpricing = currency_icon + '' + products[i].oldprice;
+				}else {
+					oldpricing = '';
+				}
 
 				content += '<div class="col-4 col-sm-4 no-gutter">'
 				content += '<div class="cards productsonsale" id="prod_click' + products[i].id + '">'
@@ -164,14 +170,23 @@ localStorage.setItem("myCurrency", currency_icon);
 				content += '<p class="badge statebadge badge-pill ' + products[i].statecolor + '">' + products[i].state + '</p>'
 				content += '</div>'
 				content += '<h4 class=" blue-text">'
+				content += '<del>' + oldpricing + ' </del>'
 				content += '<span>' + currency_icon + '' + products[i].price + ' </span>'
 				content += '</h4>'
 				content += '<h3 class="hidden">We have: <span class="stock">' + products[i].stock + '</span></h3>'
-				content += '<div class="quant-btn-group">'
+			/*	content += '<div class="quant-btn-group">'
 				content += '<button type="button" class="btn btn-number waves-effect submit ladda-button waves-light grey-border btn-toggle prod-' + products[i].id + '"  data-type="plus" data-style="slide-right" onclick="app.addtoCart(' + products[i].id + ');">'
 				content += '<img src="icons/noun_Plus_1807498-rounded-green.svg">'
 				content += '</button>'
 				content += '<div class="input-group qtty-center hidden">'
+				content += '<span class="input-group-btn">'
+				content += '<button type="button" class="btn manage-qtty  btn-number waves-effect waves-light  grey-border" onclick="app.updateItem(' + products[i].id + ',' + products[i].stock + ')"  data-type="minus">'
+				content += '<img src="icons/noun_Remove_1807498-rounded-green.svg">'
+				content += '</button>'
+				content += '</span>'*/
+
+				
+				content += '<div class="input-group qtty-center">'
 				content += '<span class="input-group-btn">'
 				content += '<button type="button" class="btn manage-qtty  btn-number waves-effect waves-light  grey-border" onclick="app.updateItem(' + products[i].id + ',' + products[i].stock + ')"  data-type="minus">'
 				content += '<img src="icons/noun_Remove_1807498-rounded-green.svg">'
@@ -217,7 +232,7 @@ localStorage.setItem("myCurrency", currency_icon);
 						var cart = (JSON.parse(localStorage.getItem('cart')) != null) ? JSON.parse(localStorage.getItem('cart')) : {
 							items: []
 						};
-						app.searchProd(cart, producto.id, parseInt(cant), producto.name, producto.price, producto.img, producto.stock);
+						app.searchProd(cart, producto.id, parseInt(cant), producto.name, producto.price, producto.img, producto.stock, producto.oldprice);
 
 						l.stop();
 						console.log(parseInt(cant))
@@ -237,7 +252,7 @@ localStorage.setItem("myCurrency", currency_icon);
 	}
 
 
-	app.searchProd = function (cart, id, cant, name, price, img, available) {
+	app.searchProd = function (cart, id, cant, name, price, img, available, oldprice) {
 		//si le pasamos un valor negativo a la cantidad, se descuenta del carrito
 		var curProd = _.find(cart.items, {
 			'id': id
@@ -248,7 +263,7 @@ localStorage.setItem("myCurrency", currency_icon);
 			if (curProd.cant < available) {
 				curProd.cant = parseInt(curProd.cant + cant)
 			} else {
-				alert('You can not add more of this product')
+				alert('This product is currently out of stock')
 			}
 			$('#prod_' + curProd.id).val(curProd.cant);
 		} else {
@@ -259,7 +274,8 @@ localStorage.setItem("myCurrency", currency_icon);
 				name: name,
 				price: price,
 				img: img,
-				available: available
+				available: available,
+				oldprice: oldprice
 			}
 			cart.items.push(prod)
 
@@ -286,26 +302,32 @@ localStorage.setItem("myCurrency", currency_icon);
 		} else {
 			var items = '';
 			_.forEach(cart.items, function (n, key) {
+			var oldpricing='';
+				if(n.oldprice != 0 || n.oldprice != '') {
+					oldpricing = currency_icon + '' +n.oldprice;
+			   }else {
+				   oldpricing = '';
+			   }
+
 
 				total = total + (n.cant * n.price);
-
 				items += '<tr>'
 				//items += '<td><img src="'+n.img+'" /></td>'
-				items += '<td><span class="qant">' + n.cant + 'x </span></td>'
+				items += '<td><span class="qant">' + n.cant + '</span></td>'
 				items += '<td><h3 class="title">' + n.name + '</h3></td>'
-				items += '<td><span class="price">' + currency_icon + '' + n.price + '</span></td>'
+				items += '<td colspan="2"><p><del>' + oldpricing + '</del></p>'
+				items += '<p><span class="price">' + currency_icon + '' + n.price + '</span></p></td>'
 				//  items +='<td> <a class="add btn-circled circled" onclick="app.updateItem('+n.id+','+n.available+')"><i class="material-icons">remove</i></a> <a onclick="app.deleteProd('+n.id+')" class="circled" ><i class="material-icons ">close</i></a></td>'
 				//	items += '<td width="100"> <a class="add btn-circled circled" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></a> <a class="btn-circled circled" onclick="app.deleteProd(' + n.id + ')" ><i class="material-icons ">close</i></a></td>'
-				items += '<td><div class="btn-group" role="group" aria-label="Edit Cart">'
-				items += '<button type="button" class="btn btn-sm btn-blue-grey lighten-5 pl-3 pr-3" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></button>'
-				items += '<button type="button" class="btn btn-sm btn-blue-grey lighten-5 pl-3 pr-3" onclick="app.deleteProd(' + n.id + ')"><i class="material-icons">close</i></button>'
-				items += '</div></td>'
+				//items += '<td><div class="btn-group" role="group" aria-label="Edit Cart">'
+				// items += '<button type="button" class="btn btn-sm btn-blue-grey lighten-5 pl-3 pr-3" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></button>'
+				//items += '</div></td>'
 				items += '</tr>';
 				$('#prod_' + n.id).val(n.cant);
 			});
 
 			//agregar el total al carrito
-			items += '<tr><td colspan="2" class="total> <div id="submitForm"></div></td><td id="total" class="total right" colspan="3">Total : ' + currency_icon + '' + total + ' </td></tr>'
+			items += '<tr class="total-row"><td colspan="2" class="total> <div id="submitForm"></div></td><td id="total" class="total left" colspan="3">' + currency_icon + '' + total + ' </td></tr>'
 			wrapper.html(items)
 			$('.cart').css('left', '0')
 		}
@@ -398,7 +420,6 @@ localStorage.setItem("myCurrency", currency_icon);
 		//app.checkItems()
 
 		app.updatePayForm()
-
 		app.createProducts()
 		app.getProducts()
 
