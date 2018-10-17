@@ -270,20 +270,20 @@ a.cart-icon {
   background: url(../img/shopping_cart.png) no-repeat center;
   background-size: cover;
 }
-.cart {
+/*.cart {
   /*position: relative;
   width: auto;
   list-style: none;
   background: #fff;
   border-radius: 4px;
   top: -1.5em;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);*/
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 .cart div {
   padding: 10px;
   height: 72px;
-}
-.cart div button. {
+}*/
+.cart div button {
   background: transparent;
   margin: 0;
   width: 0;

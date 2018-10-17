@@ -7,17 +7,27 @@ var backtoprev = $(".backtoprev"),
 
 
 function showQuantity() {
+    var thisitem = $(".btn-toggle");
+    var quantty = thisitem.closest("input");
 
-    $('.quantity').each(function () {
-
-        if ($(this).val() == 0) {
-            $(this).hide();
+    thisitem.click(function(){
+        $(this).toggleClass("hidden");
+        $(this).siblings().toggleClass("hidden");
+        alert(JSON.stringify(quantty));
+     
+        quantty.each(function () {
+           
+       /* if (quantty >= 0) {
+          
         } else {
-            $(this).show();
-        }
+            $(".btn-toggle").hide();
+            $(this).siblings().removeClass("hidden");
+            $(".btn-toggle").show();
+            $(this).siblings().addClass("hidden");
+        }*/
     });
 
-
+});
 }
 
 // showQuantity();
@@ -337,12 +347,14 @@ function productsPage() {
 }
 
 
-$(document).ready(function () {
 
+$(document).ready(function () {
+    showQuantity();
     showMenu();
     showOrders();
     currency_icon = '₱';
     localStorage.setItem("myCurrency", currency_icon);
 
+    
 
 });

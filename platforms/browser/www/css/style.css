@@ -394,3 +394,15 @@ h5.category{
       float: left;
       font-size: 14px;
   }
+
+
+
+  .quant-btn-group {
+      width:100%;
+  }
+  .quant-btn-group .btn-toggle {
+    margin: 0 auto !important;
+    text-align: center !important;
+    width: 28px !important;
+    float: none;
+  }

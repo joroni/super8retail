@@ -1,7 +1,7 @@
 var app = window.app || {},
 	business_paypal = '', // aquí va tu correo electrónico de paypal
 	currency_icon = '₱';
-	localStorage.setItem("myCurrency", currency_icon);
+localStorage.setItem("myCurrency", currency_icon);
 (function ($) {
 	'use strict';
 
@@ -27,9 +27,9 @@ var app = window.app || {},
 		var total_Items = $('#totalItems');
 		total_Items.text(items);
 		//alert(items);
-		if (items == 0 ){
+		if (items == 0) {
 			$(total_Items).hide();
-		}else{
+		} else {
 			$(total_Items).show();
 		}
 		$('.totalAmount').text(currency_icon + ' ' + total + ' USD');
@@ -51,60 +51,60 @@ var app = window.app || {},
 	}
 
 	app.createProducts = function () {
-		
+
 
 		var products = [{
 					id: 1,
-					sku:'A0000001',
+					sku: 'A0000001',
 					name: 'Denim Shirt',
 					cat: 'Sports Wear',
 					state: 'New',
 					statecolor: 'red',
-					size:'',
+					size: '',
 					img: 'img/products/12.jpg',
-					oldprice:'',
+					oldprice: '',
 					price: 299.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 					stock: 4
 				},
 				{
 					id: 2,
-					sku:'A0000002',
+					sku: 'A0000002',
 					name: 'Drypers Mega Pack',
 					cat: 'Baby',
 					state: 'Sale',
 					statecolor: 'green',
-					size:'Large x 62 pcs',
+					size: 'Large x 62 pcs',
 					img: 'img/products/baby.jpg',
-					oldprice:630.00,
+					oldprice: 630.00,
 					price: 503.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 					stock: 2
 				},
 				{
 					id: 3,
-					sku:'A0000003',
+					sku: 'A0000003',
 					name: 'Cool Shirt',
 					cat: 'Out Wear',
 					state: '',
 					statecolor: '',
-					size:'',
+					size: '',
 					img: 'img/products/14.jpg',
-					oldprice:'',
+					oldprice: '',
 					price: 99.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 					stock: 1
 				},
 				{
 					id: 4,
-					sku:'A0000004',
+					sku: 'A0000004',
 					name: '137 Degrees Iced Coffee Latte with Almond Milk Drink',
 					cat: 'Coffee',
 					state: '',
 					statecolor: '',
-					size:'3 pcs x 180 ml',
+					size: '3 pcs x 180 ml',
 					img: 'img/products/coffee.jpg',
-					oldprice:'',
+					oldprice: '',
 					price: 80.00,
 					desc: 'Perfect iced coffee latte with almond milk',
 					stock: 50
@@ -115,10 +115,10 @@ var app = window.app || {},
 					name: 'Gingen Strong Ginger Formula Tea',
 					cat: 'Tea',
 					state: 'Best Seller',
-					size:	'',
+					size: '',
 					statecolor: 'blue',
 					img: 'img/products/tea.jpg',
-					oldprice:'',
+					oldprice: '',
 					price: 440.00,
 					desc: 'Hot drink with slightly sweet and strong taste from aged quality ginger',
 					stock: 20
@@ -130,9 +130,9 @@ var app = window.app || {},
 					cat: 'Out Wear',
 					state: '',
 					statecolor: '',
-					size:'3 pcs x 180 ml',
+					size: '3 pcs x 180 ml',
 					img: 'img/products/15.jpg',
-					oldprice:'',
+					oldprice: '',
 					price: 80.00,
 					desc: 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
 					stock: 8
@@ -140,66 +140,54 @@ var app = window.app || {},
 			],
 			wrapper = $('#productosWrapper'),
 			content = ''
-			//wrapper2 = $('#footerBtns');
-			//content2 = ''
+	
 		for (var i = 0; i < products.length; i++) {
 
 			if (products[i].stock > 0) {
-				
-
-				/*	content+= '<div class="coin-wrapper">'
-					content+= '		<img src="'+products[i].img+'" alt="'+products[i].name+'">'
-					content+= '		<span class="large-12 columns product-details">'
-					content+= '			<h3>'+products[i].name+' <span class="price">'+currency_icon+''+products[i].price+' USD</span></h3>'
-					content+= '			<h3>We have: <span class="stock">'+products[i].stock+'</span></h3>'
-					content+= '		</span>'
-					content+= '		<a class="large-12 columns btn submit ladda-button prod-'+products[i].id+'" data-style="slide-right" onclick="app.addtoCart('+products[i].id+');">Add to cart</a>'
-					content+= '		<div class="clearfix"></div>'
-					content+= '</div>'*/
 
 				content += '<div class="col-4 col-sm-4 no-gutter">'
-				content += '<div class="cards productsonsale" id="prod_click'+products[i].id+'">'
+				content += '<div class="cards productsonsale" id="prod_click' + products[i].id + '">'
 				content += '<div class="view">'
 				content += '<img src="' + products[i].img + '"class="card-img-top"  alt="' + products[i].name + '">'
-				content += '<a href="product-page.html" onclick=getSKU("'+products[i].sku+'") data-sku="'+products[i].sku+'">'
+				content += '<a href="product-page.html" onclick=getSKU("' + products[i].sku + '") data-sku="' + products[i].sku + '">'
 				content += '<div class="mask rgba-white-slight"></div>'
 				content += '</a>'
 				content += '</div>'
 				content += '<div class="card-body text-center parent">'
 				content += '<a href="#" class="grey-text truncate">'
-				content += '<h5 class="category">'+ products[i].cat + '</h5>'
+				content += '<h5 class="category">' + products[i].cat + '</h5>'
 				content += '</a>'
 				content += '<div class="truncate">'
 				content += '<h5>'
 				content += '<a href="" class="dark-grey-text"> ' + products[i].name + '</a>'
 				content += '</h5>'
-				content += '<p class="badge statebadge badge-pill '+ products[i].statecolor + '">'+ products[i].state + '</p>'
+				content += '<p class="badge statebadge badge-pill ' + products[i].statecolor + '">' + products[i].state + '</p>'
 				content += '</div>'
 				content += '<h4 class=" blue-text">'
 				content += '<span>' + currency_icon + '' + products[i].price + ' </span>'
 				content += '</h4>'
 				content += '<h3 class="hidden">We have: <span class="stock">' + products[i].stock + '</span></h3>'
-				content += '<div class="input-group qtty-center">'
+				content += '<div class="quant-btn-group">'
+				content += '<button type="button" class="btn btn-number waves-effect submit ladda-button waves-light grey-border btn-toggle prod-' + products[i].id + '"  data-type="plus" data-style="slide-right" onclick="app.addtoCart(' + products[i].id + ');">'
+				content += '<img src="icons/noun_Plus_1807498-rounded-green.svg">'
+				content += '</button>'
+				content += '<div class="input-group qtty-center hidden">'
 				content += '<span class="input-group-btn">'
 				content += '<button type="button" class="btn manage-qtty  btn-number waves-effect waves-light  grey-border" onclick="app.updateItem(' + products[i].id + ',' + products[i].stock + ')"  data-type="minus">'
 				content += '<img src="icons/noun_Remove_1807498-rounded-green.svg">'
 				content += '</button>'
 				content += '</span>'
-				content += '<input type="number" id="prod_'+products[i].id +'" readonly name="quant['+products[i].id +']" class="form-control input-number quantity manage-qtty"  value="0" min="0" max="100">'
+				content += '<input type="number" id="prod_' + products[i].id + '" readonly name="quant[' + products[i].id + ']" class="form-control input-number quantity manage-qtty"  value="0" min="0" max="100">'
 				content += '<span class="input-group-btn">'
 				content += '<button type="button" class="btn btn-number waves-effect  submit ladda-button waves-light grey-border prod-' + products[i].id + '"  data-type="plus" data-style="slide-right" onclick="app.addtoCart(' + products[i].id + ');">'
 				content += '<img src="icons/noun_Plus_1807498-rounded-green.svg">'
 				content += '</button>'
 				content += '</span>'
-				content += '</div>'
+				content += '</div></div>'
 				content += '</div>'
 				content += '</div>'
 				content += '</div>'
 
-
-
-
-			
 
 			}
 
@@ -221,7 +209,7 @@ var app = window.app || {},
 				'id': id
 			}),
 			cant = 1;
-			$('body').css('opacity','0.5');
+		$('body').css('opacity', '0.5');
 		if (cant <= producto.stock) {
 			if (undefined != producto) {
 				if (cant > 0) {
@@ -230,12 +218,12 @@ var app = window.app || {},
 							items: []
 						};
 						app.searchProd(cart, producto.id, parseInt(cant), producto.name, producto.price, producto.img, producto.stock);
-						 
+
 						l.stop();
 						console.log(parseInt(cant))
-						$('body').css('opacity','1');
-					}, 2000)
-					 
+						$('body').css('opacity', '1');
+					}, 100)
+
 				} else {
 					alert('Only larger quantities are allowed to zero');
 				}
@@ -245,9 +233,8 @@ var app = window.app || {},
 		} else {
 			alert('You can not add more of this product');
 		}
-		
-	}
 
+	}
 
 
 	app.searchProd = function (cart, id, cant, name, price, img, available) {
@@ -263,7 +250,7 @@ var app = window.app || {},
 			} else {
 				alert('You can not add more of this product')
 			}
-			$('#prod_'+curProd.id).val(curProd.cant);
+			$('#prod_' + curProd.id).val(curProd.cant);
 		} else {
 			//sino existe lo agregamos al carrito
 			var prod = {
@@ -301,20 +288,20 @@ var app = window.app || {},
 			_.forEach(cart.items, function (n, key) {
 
 				total = total + (n.cant * n.price);
-			
+
 				items += '<tr>'
 				//items += '<td><img src="'+n.img+'" /></td>'
 				items += '<td><span class="qant">' + n.cant + 'x </span></td>'
 				items += '<td><h3 class="title">' + n.name + '</h3></td>'
 				items += '<td><span class="price">' + currency_icon + '' + n.price + '</span></td>'
 				//  items +='<td> <a class="add btn-circled circled" onclick="app.updateItem('+n.id+','+n.available+')"><i class="material-icons">remove</i></a> <a onclick="app.deleteProd('+n.id+')" class="circled" ><i class="material-icons ">close</i></a></td>'
-			//	items += '<td width="100"> <a class="add btn-circled circled" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></a> <a class="btn-circled circled" onclick="app.deleteProd(' + n.id + ')" ><i class="material-icons ">close</i></a></td>'
-			items += '<td><div class="btn-group" role="group" aria-label="Edit Cart">'
-			items +='<button type="button" class="btn btn-sm btn-blue-grey lighten-5 pl-3 pr-3" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></button>'
-			items +='<button type="button" class="btn btn-sm btn-blue-grey lighten-5 pl-3 pr-3" onclick="app.deleteProd('+n.id+')"><i class="material-icons">close</i></button>'
-			items +='</div></td>'
-			items += '</tr>';
-				$('#prod_'+n.id).val(n.cant);
+				//	items += '<td width="100"> <a class="add btn-circled circled" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></a> <a class="btn-circled circled" onclick="app.deleteProd(' + n.id + ')" ><i class="material-icons ">close</i></a></td>'
+				items += '<td><div class="btn-group" role="group" aria-label="Edit Cart">'
+				items += '<button type="button" class="btn btn-sm btn-blue-grey lighten-5 pl-3 pr-3" onclick="app.updateItem(' + n.id + ',' + n.available + ')"><i class="material-icons">remove</i></button>'
+				items += '<button type="button" class="btn btn-sm btn-blue-grey lighten-5 pl-3 pr-3" onclick="app.deleteProd(' + n.id + ')"><i class="material-icons">close</i></button>'
+				items += '</div></td>'
+				items += '</tr>';
+				$('#prod_' + n.id).val(n.cant);
 			});
 
 			//agregar el total al carrito
@@ -353,7 +340,7 @@ var app = window.app || {},
 		var curProd = _.find(cart.items, {
 			'id': id
 		})
-		$('#prod_'+id+'').val('0');
+		$('#prod_' + id + '').val('0');
 		_.remove(cart.items, curProd);
 		localStorage.setItem('cart', JSON.stringify(cart))
 		app.init()
@@ -398,11 +385,10 @@ var app = window.app || {},
 				i++;
 			})
 
-			statics += dinamic + '<button type="submit" class="pay btn btn-success">Submit &nbsp;<i class="ion-chevron-right"></i></button></form>'
+			statics += dinamic + '<button type="submit" class="pay btn btn-success">Submit  <i class="ion-chevron-right"></i></button></form>'
 
 			wrapper.html(statics)
 		}
-
 
 
 	}
@@ -410,12 +396,12 @@ var app = window.app || {},
 	$(document).ready(function () {
 		app.init()
 		//app.checkItems()
-		
+
 		app.updatePayForm()
-	
+
 		app.createProducts()
 		app.getProducts()
-	
+
 	})
 
 })(jQuery)
