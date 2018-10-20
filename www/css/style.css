@@ -447,3 +447,15 @@ h5.category{
     color: #212529 !important;
     height: 40px;
 }
+.cart p.price.right {
+    width: 100%;
+}
+
+
+table.table td, table.table th {
+   vertical-align: middle;
+}
+tbody.cart td, table.table th {
+     padding-top: .2rem; 
+     padding-bottom: .2rem; 
+}

@@ -25,7 +25,7 @@
     <div class="m-page scene_element scene_element--fadeinup">
 
         <!-- Navbar -->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light trans noshadow scrolling-navbar">
             <div class="container">
 
                 <!-- Brand -->
@@ -34,7 +34,7 @@
                 </a>
 
                 <!-- Collapse -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                <button class="navbar-toggler hidden" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -110,6 +110,14 @@
                     <p>
                         <button type="button" id="sync" class="enableOnInput btn btn-primary hidden btn-block">Save</button>
                     </p>
+                    <p>
+                        <button type="button" id="po" class="enableOnInput btn btn-primary hidden btn-block">Order</button>
+                    </p>
+                    <p>
+                            <button type="button" id="pay" class="enableOnInput btn btn-primary hidden btn-block">Pay</button>
+                        </p>
+
+                  
                 </form>
             </div>
             <pre id="output"></pre>
@@ -169,17 +177,57 @@
                     var json1 = toJSONString(this);
                     output.innerHTML = json1;
                     //  alert(json1);
-                    localStorage.setItem("muPO", json1);
+                    localStorage.setItem("muPO", '{"items":['+json1+']}');
+                 //   localStorage.setItem("muPO", json1);
                     var json1 = localStorage.getItem("muPO");
                     var json2 = localStorage.getItem("cart"); 
-                    var finalObj = [...json1, ...json2]
-                    //var finalObj = json1.concat(json2);
-                    alert(finalObj);
+                    //var finalObj = [...json1, ...json2]
+                    var finalObj = json1.concat(json2);
+                   // alert(finalObj);
+                   localStorage.setItem("mypurchases",finalObj );
                 }, false);
 
             });
 
         })();
+
+        /*
+         {
+    "items": [{
+        "id": 1,
+        "cant": 1,
+        "name": "Denim Shirt",
+        "price": 299,
+        "img": "img/products/12.jpg",
+        "available": 4,
+        "oldprice": "",
+        "cname": "JR0001",
+        "check": "yes",
+        "select": "none",
+        "notes": "BPJR10191801",
+        "email": "",
+        "smname":"BP00001",
+        "timestamp": "1539914136743",
+        "total":"1179"
+    }, {
+        "id": 5,
+        "cant": 2,
+        "name": "Gingen Strong Ginger Formula Tea",
+        "price": 440,
+        "img": "img/products/tea.jpg",
+        "available": 20,
+        "oldprice": "",
+        "cname": "JR0001",
+        "check": "yes",
+        "select": "none",
+        "notes": "BPJR10191801",
+        "email": "",
+        "smname":"BP00001",
+        "timestamp": "1539914136743",
+        "total":"1179"
+    }]
+}
+*/
     </script>
 
 
@@ -211,6 +259,10 @@
 
         $('#confirm').click(function () {
             $('.enableOnInput').removeClass('hidden');
+          //  $("#log").append(JSON.stringify(finalObj));
+              //$("#log").append(JSON.stringify(finalObj));
+           
+           // localStorage.setItem("mypurchased",JSON.stringify(finalObj) );
         });
 
         $("#sync").click(function () {
@@ -221,11 +273,29 @@
             $.extend(object1, object2);
 
             // Assuming JSON.stringify - not available in IE<8
+
+       
+        })
+
+
+         $("#po").click(function () {
+            var object1 = JSON.parse(localStorage.getItem("muPO"));
+            var object2 =JSON.parse( localStorage.getItem("cart"));
+          //  var finalObj = object1.concat(object2);
+            // Merge object2 into object1
+            $.extend(object1, object2);
+
+            // Assuming JSON.stringify - not available in IE<8
+           
            $("#log").append(JSON.stringify(object1));
               //$("#log").append(JSON.stringify(finalObj));
            
-            localStorage.setItem("purchaseOrder",JSON.stringify(finalObj) );
+            localStorage.setItem("po",JSON.stringify(object1) );
         })
+
+
+
+          
     </script>
 
     <!-- Initializations -->
