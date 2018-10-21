@@ -124,8 +124,8 @@ function memberList() {
 
                 $('[data-toggle="class"]').click(function(){
                     var $target = $($(this).data('target'));
-                   // var classes = $(this).data('classes');
-                   var classes = $(this).hasClass('classes');
+                 var classes = $(this).data('classes');
+                
                     $target.toggleClass(classes);
                     return false;
                 });
@@ -213,11 +213,29 @@ function updateMember(integrante) {
 }
 
 function removeMember(idMember) {
-    db.transaction(function (tx) {
+
+
+               var retVal = confirm("This will delete the selected record? Do you want to continue ?");
+               if( retVal == true ){
+                db.transaction(function (tx) {
+                    tx.executeSql('DELETE FROM CUSTOMERS WHERE ID = ?', [idMember]);
+                }, error, function () {
+                    alert("The member has been rem successfully");
+                })
+                  return true;
+               }
+               else{
+                 
+                  return false;
+               }
+          
+       
+
+  /*  db.transaction(function (tx) {
         tx.executeSql('DELETE FROM CUSTOMERS WHERE ID = ?', [idMember]);
     }, error, function () {
         alert("The member has been rem successfully");
-    });
+    });*/
 }
 
 

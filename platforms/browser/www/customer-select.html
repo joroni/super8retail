@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="vendor/csstricks/assets/css/keyframes.css">
+  <link rel="stylesheet" href="vendor/csstricks/assets/css/pageTransitions.css">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet"></head>
+
+
+  <body class="login m-scene" id="main">
+    <div class="m-page scene_element scene_element--fadeinup">
+      <!-- Navbar -->
+      <nav class="navbar fixed-top info-color navbar-expand-lg navbar-light white scrolling-navbar">
+        <div class="container">
+  
+          <!-- Brand -->
+          <a class="navbar-brand waves-effect" target="_self" href="#">
+            <h5 class=" white-text text-center">Signin</h5>
+          </a> 
+  
+          <!-- Collapse 
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  -->
+          <!-- Links -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+            <!-- Left -->
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link waves-effect" href="index.html">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link waves-effect" href="customer-list.html">Customers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link waves-effect" href="orders.html">Orders</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link waves-effect" href="storefront.html">Catalog</a>
+              </li>
+            </ul>
+  
+            <!-- Right -->
+            <ul class="navbar-nav nav-flex-icons">
+              <li class="nav-item">
+                <a class="nav-link waves-effect">
+                  <span class="badge red z-depth-1 mr-1"> 1 </span>
+                  <i class="fa fa-shopping-cart"></i>
+                  <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+                </a>
+              </li>
+  
+            </ul>
+  
+          </div>
+  
+        </div>
+      </nav>
+      <!-- Navbar -->
+  
+  <main class="login m-scene" id="main">
+
+    <!-- Material form login -->
+    <div class="cards m-page scene_element scene_element--fadeinup pt-5">
+
+     <!-- <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Sign in</strong>
+      </h5>-->
+
+      <!--Card content-->
+      <div class="card-body px-lg-5 pt-0">
+
+        <!-- Form -->
+        <form class="text-center" style="color: #757575;">
+            <select class="mdb-select md-form" searchable="Search here..">
+                <option value="" disabled selected>Choose your country</option>
+                <option value="1">USA</option>
+                <option value="2">Germany</option>
+                <option value="3">France</option>
+                <option value="3">Poland</option>
+                <option value="3">Japan</option>
+              </select>
+              <label>Label example</label>
+          <!-- Email -->
+          <div class="md-form">
+            <input type="email" id="materialLoginFormEmail" class="form-control">
+            <label for="materialLoginFormEmail">E-mail</label>
+          </div>
+
+          <!-- Password -->
+          <div class="md-form">
+            <input type="password" id="materialLoginFormPassword" class="form-control">
+            <label for="materialLoginFormPassword">Password</label>
+          </div>
+
+          <div class="d-flex justify-content-around">
+            <div>
+              <!-- Remember me 
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
+                <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>
+              </div>
+            </div>
+            <div>-->
+              <!-- Forgot password 
+              <a href="">Forgot password?</a>-->
+            </div>
+          </div>
+
+          <!-- Sign in button -->
+          <button id="btnLogin" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign
+            in</button>
+
+          <!-- Register -->
+          <p>Not a member?
+            <a href="register.html">Register</a>
+          </p>
+          <p>Not a member?
+            <a href="storefront.html">Home</a>
+          </p>
+
+          <!-- Social login -->
+          <p>or sign in with:</p>
+          <a type="button" class="btn-floating btn-fb btn-sm">
+            <i class="fa fa-facebook"></i>
+          </a>
+          <a type="button" class="btn-floating btn-tw btn-sm">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a type="button" class="btn-floating btn-li btn-sm">
+            <i class="fa fa-linkedin"></i>
+          </a>
+          <a type="button" class="btn-floating btn-git btn-sm">
+            <i class="fa fa-github"></i>
+          </a>
+
+        </form>
+        <!-- Form -->
+
+      </div>
+
+    </div>
+    <!-- Material form login -->
+  </main>
+  <!--Main layout-->
+
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+
+  <script type="text/javascript" src="js/app.js"></script>
+  <!-- Initializations -->
+  <script src="vendor/csstricks/assets/js/jquery.smoothState.min.js"></script>
+  <script src="vendor/csstricks/assets/js/main.js"></script>
+
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+    // SideNav Button Initialization
+    // $(".button-collapse").sideNav();
+    // SideNav Scrollbar Initialization
+    //var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+    //Ps.initialize(sideNavScrollbar);
+  </script>
+</body>
+
+</html>
