@@ -282,6 +282,7 @@ function productsPage() {
         var state = product.state;
         var statecolor = product.statecolor;
         var stock = product.stock;
+       
        // var currency = localStorage.getItem("myCurrency");
 
         // console.log(cat+"|"+desc+"|"+id+"|"+img+"|"+name+"|"+price+"|"+size);

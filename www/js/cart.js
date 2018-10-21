@@ -1,7 +1,9 @@
 var app = window.app || {},
 	business_paypal = '', // aquí va tu correo electrónico de paypal
 	currency_icon = '₱';
-localStorage.setItem("myCurrency", currency_icon);
+	mockIdSalesMngr = '1111111111111';
+	localStorage.setItem("myCurrency", currency_icon);
+	localStorage.setItem("idSalesMngr", mockIdSalesMngr);
 (function ($) {
 	'use strict';
 
@@ -240,7 +242,20 @@ localStorage.setItem("myCurrency", currency_icon);
 	}
 
 	app.addtoCart = function (id) {
-		console.log("add to cart");
+		//function checkHasUer(){
+
+		if (!localStorage.getItem("idMember")) {
+
+			alert("Please select a customer.");
+			window.location.href="customer-select.html"
+			return false;
+		} else {
+			console.log("continue shopping");
+		
+		
+		
+
+		//console.log("add to cart");
 		var l = Ladda.create(document.querySelector('.prod-' + id));
 
 		l.start();
@@ -258,17 +273,18 @@ localStorage.setItem("myCurrency", currency_icon);
 							items: []
 						};
 						app.searchProd(cart,
-							producto.id, 
-							parseInt(cant), 
-							producto.name, 
-							producto.price, 
-							producto.img, 
-							producto.stock, 
-							producto.oldprice, 
-							producto.cname, 
-							producto.smname, 
-							producto.total,
-							producto.check,
+							producto.id,
+							producto.sku,
+							parseInt(cant),
+							producto.name,
+							producto.price,
+							producto.img,
+							producto.stock,
+							producto.oldprice,
+							producto.cname=localStorage.getItem("idMember"),
+							producto.smname=localStorage.getItem("idSalesMngr"),
+							producto.total=localStorage.getItem("grndTotal"),
+							producto.check="notsync",
 							producto.select,
 							producto.notes,
 							producto.email,
@@ -291,9 +307,9 @@ localStorage.setItem("myCurrency", currency_icon);
 		}
 
 	}
+}
 
-
-	app.searchProd = function (cart, id, cant, name, price, img, available, oldprice, cname, smname, total, check,select, notes,email,timestamp) {
+	app.searchProd = function (cart, id, sku, cant, name, price, img, available, oldprice, cname, smname, total, check, select, notes, email, timestamp) {
 		//si le pasamos un valor negativo a la cantidad, se descuenta del carrito
 		var curProd = _.find(cart.items, {
 			'id': id
@@ -311,20 +327,21 @@ localStorage.setItem("myCurrency", currency_icon);
 			//sino existe lo agregamos al carrito
 			var prod = {
 				id: id,
+				sku: sku,
 				cant: cant,
 				name: name,
 				price: price,
 				img: img,
 				available: available,
 				oldprice: oldprice,
-				cname:cname, 
-				smname:smname,
-				total:total,
-				check:check,
-				select:select,
-				notes:notes,
-				email:email,
-				timestamp:timestamp
+				cname: cname,
+				smname: smname,
+				total: total,
+				check: check,
+				select: select,
+				notes: notes,
+				email: email,
+				timestamp: timestamp
 			}
 			cart.items.push(prod)
 
@@ -344,7 +361,7 @@ localStorage.setItem("myCurrency", currency_icon);
 			msg = '',
 			wrapper = $('.cart'),
 			total = 0
-		wrapper.html('')
+			wrapper.html('')
 
 		if (undefined == cart || null == cart || cart == '' || cart.items.length == 0) {
 			wrapper.html('<div>Your cart is empty</div>');
@@ -374,7 +391,8 @@ localStorage.setItem("myCurrency", currency_icon);
 			//agregar el total al carrito
 			items += '<tr class="total-row"><td colspan="2" > </td><td id="total" class="total right" colspan="3">' + currency_icon + '' + total.toFixed(2) + ' </td></tr>'
 			items += '<tr><td colspan="5" class="total"> <div id="submitForms"></div></td></tr>'
-			wrapper.html(items)
+			wrapper.html(items);
+			localStorage.setItem("grndTotal",  total.toFixed(2));
 			$('.cart').css('left', '0')
 		}
 	}
@@ -451,6 +469,7 @@ localStorage.setItem("myCurrency", currency_icon);
 				dinamic += '<input type="hidden" name="amount_' + i + '" value="' + prod.price + '">'
 				dinamic += '<input type="hidden" name="item_number_' + i + '" value="' + prod.id + '" />'
 				dinamic += '<input type="hidden" name="quantity_' + i + '" value="' + prod.cant + '" />'
+			//	dinamic += '<input type="hidden" name="total' + i + '" value="' + prod.total + '" />' // added by jrn
 				i++;
 			})
 
@@ -464,14 +483,14 @@ localStorage.setItem("myCurrency", currency_icon);
 
 	$(document).ready(function () {
 		app.init();
-	
+
 		app.updatePayForm();
 		app.createProducts();
 		app.getProducts();
-		
- $("#pay").click(function () {
-    app.updatePayForm();
-        })
+
+		$("#pay").click(function () {
+			app.updatePayForm();
+		})
 
 
 	})

@@ -103,11 +103,11 @@ function memberList() {
 
                     lisHtml += '<div class="list-group-item customer-list list-group-item-action"><div class="media">' +
                         '<div href="#" data-toggle="class" data-target="#tools' + integrante.ID + '" class="icon-btn toggleTools" id="toggleTools' + integrante.ID + '"><i class="material-icons fa-2x">more_vert</i></div>' +
-                        '<a href="#" onclick="viewMember('+ id +')"><img src="img/user.svg" class="mr-3 btn-user-info img-circle" width="64" alt="Sample Image" /></a>' +
+                        '<a href="#" onclick="viewMember('+ id +')"><img src="img/user.svg" class="mr-3 btn-user-info img-circle" width="48" alt=' + integrante.FNAMES + ' ' + integrante.LNAMES +" /></a>" +
 
-                        '<div class="media-body"><h5 class="mt-0">' + integrante.FNAMES + ' ' + integrante.LNAMES + '</h5><p> ' + integrante.PHONE + '</p><div id="tools' + integrante.ID + '" class="showData edittool">' +
-                        '<button class="btn btn-info btn-editar" data-toggle="modal" data-target="#modalCart" type="button" data-id="' + id + '"><i class="material-icons">edit</i></button>' +
-                        '<button class="btn btn-info btn-eliminar" type="button" data-id="' + id + '"><i class="material-icons">delete</i></Eliminar></div></div></div></div>';
+                        '<div class="media-body"><h5 class="mt-0 customer-name">' + integrante.FNAMES + ' ' + integrante.LNAMES + '</h5><p> ' + integrante.PHONE + '</p><div id="tools' + integrante.ID + '" class="showData edittool">' +
+                        '<button class="btn btn-info btn-editar btn-outline-info btn-rounded" data-toggle="modal" data-target="#modalCart" type="button" data-id="' + id + '"><i class="material-icons">edit</i></button>' +
+                        '<button class="btn btn-info btn-eliminar btn-outline-info btn-rounded" type="button" data-id="' + id + '"><i class="material-icons">delete</i></Eliminar></div></div></div></div>';
 
 
                 }
@@ -158,7 +158,10 @@ function saveMember(integrante) {
     });
 }
 
+
+
 function selectMember(idMember) {
+   // localStorage.setItem("customer-name",idMember);
     db.readTransaction(function (t) {
         t.executeSql('SELECT ID, FNAMES, LNAMES , PHONE, EMAIL FROM CUSTOMERS WHERE ID = ?', [idMember], function (t, rs) {
             if (rs.rows.length > 0) {
@@ -172,13 +175,10 @@ function selectMember(idMember) {
                 $('#lname').val(rs.rows.item(0).LNAMES);
                 $('#phone').val(rs.rows.item(0).PHONE);
                 $('#email').val(rs.rows.item(0).EMAIL);
-              
-//console.log($(this).attr([id]));
             }
         }, error);
     });
 }
-
 
 
 
