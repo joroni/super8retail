@@ -390,7 +390,8 @@ var app = window.app || {},
 
 			//agregar el total al carrito
 			items += '<tr class="total-row"><td colspan="2" > </td><td id="total" class="total right" colspan="3">' + currency_icon + '' + total.toFixed(2) + ' </td></tr>'
-			items += '<tr><td colspan="5" class="total"> <div id="submitForms"></div></td></tr>'
+			items += '<tr><td colspan="5" class="total"></td></tr>'
+			items += '<tr><td colspan="5"> <div id="submitForm"></div></td></tr>'
 			wrapper.html(items);
 			localStorage.setItem("grndTotal",  total.toFixed(2));
 			$('.cart').css('left', '0')
@@ -488,7 +489,7 @@ var app = window.app || {},
 		app.createProducts();
 		app.getProducts();
 
-		$("#pay").click(function () {
+		$(".btn-checkout").click(function () {
 			app.updatePayForm();
 		})
 
