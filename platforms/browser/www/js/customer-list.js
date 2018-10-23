@@ -7,7 +7,8 @@ $(document).ready(function () {
     init();
 
     memberList();
-
+    
+    selectCustomertoShop();
     console.info("Carga Complete...");
 
     ////////////////////////////////////////////////////////////////////
@@ -86,6 +87,7 @@ $(document).ready(function () {
 function init() {
     db.transaction(function (tx) {
         tx.executeSql('create table if not exists CUSTOMERS(ID, FNAMES, LNAMES,PHONE, EMAIL)');
+        tx.executeSql('create table if not exists PURCHASEORDER(ID, FNAMES, LNAMES,PHONE, EMAIL)');
     }, error, exito);
 }
 
@@ -103,7 +105,7 @@ function memberList() {
 
                     lisHtml += '<div class="list-group-item customer-list list-group-item-action"><div class="media">' +
                         '<div href="#" data-toggle="class" data-target="#tools' + integrante.ID + '" class="icon-btn toggleTools" id="toggleTools' + integrante.ID + '"><i class="material-icons fa-2x">more_vert</i></div>' +
-                        '<a href="#" onclick="viewMember('+ id +')"><img src="img/user.svg" class="mr-3 btn-user-info img-circle" width="48" alt=' + integrante.FNAMES + ' ' + integrante.LNAMES +" /></a>" +
+                        '<a href="#" onclick="showProfile('+ id +')"  data-toggle="modal" data-target="#modalCart"><img src="img/user.svg" class="mr-3 btn-user-info img-circle" width="48" alt=' + integrante.FNAMES + ' ' + integrante.LNAMES +" /></a>" +
 
                         '<div class="media-body"><h5 class="mt-0 customer-name">' + integrante.FNAMES + ' ' + integrante.LNAMES + '</h5><p> ' + integrante.PHONE + '</p><div id="tools' + integrante.ID + '" class="showData edittool">' +
                         '<button class="btn btn-info btn-editar btn-outline-info btn-rounded" data-toggle="modal" data-target="#modalCart" type="button" data-id="' + id + '"><i class="material-icons">edit</i></button>' +
@@ -136,6 +138,7 @@ function memberList() {
                 $("#btnNew").click(function () {
                     console.log("reset fields");
                     $('#dynamic-form')[0].reset();
+                    $('#modalBody').html("")
                     $('#txt-id').val("");
                     $("#modal-Title").html("Add Customer");
 
@@ -148,6 +151,66 @@ function memberList() {
         }, error);
     });
 }
+
+
+
+function selectCustomertoShop() {
+    db.readTransaction(function (t) {
+        t.executeSql('SELECT ID, FNAMES, LNAMES, PHONE, EMAIL FROM CUSTOMERS', [], function (t, rs) {
+            if (rs.rows.length > 0) {
+                var lisHtml = '';
+
+                for (var i = 0; i < rs.rows.length; i++) {
+                    var integrante = rs.rows.item(i);
+                    var id = integrante.ID;
+
+
+
+                    lisHtml += '<div class="list-group-item customer-list list-group-item-action">'+
+                                    '<div class="media"><i class="material-icons"></i>' +
+                                        '<a href="#" onclick="viewidMember('+ id +')"><img src="img/user.svg" class="mr-3 btn-user-info img-circle" width="48" alt=' + integrante.FNAMES + ' ' + integrante.LNAMES +" /></a>" +
+                                        '<div class="media-body"><h5 class="mt-0 customer-name">' + integrante.FNAMES + ' ' + integrante.LNAMES + '</h5><p> ' + integrante.PHONE + '</p></div>'+
+                                    '</div>'+
+                                '</div>';
+
+
+                }
+
+
+                $('#customer-select-list').html(lisHtml);
+
+             
+
+                $('[data-toggle="class"]').click(function(){
+                    var $target = $($(this).data('target'));
+                 var classes = $(this).data('classes');
+                
+                    $target.toggleClass(classes);
+                    return false;
+                });
+                
+
+
+
+                $("#btnNew").click(function () {
+                    console.log("reset fields");
+                    $('#dynamic-form')[0].reset();
+                    $('#modalBody').html("")
+                    $('#txt-id').val("");
+                    $("#modal-Title").html("Add Customer");
+
+                })
+
+
+
+            }
+
+        }, error);
+    });
+}
+
+
+
 
 function saveMember(integrante) {
     db.transaction(function (tx) {
@@ -182,9 +245,10 @@ function selectMember(idMember) {
 
 
 
-function viewMember(idMember) {
+function viewidMember(idMember) {
     localStorage.setItem("idMember",idMember);
-    alert(idMember);
+    console.log(idMember);
+  // viewidMember(idMembre);
     db.readTransaction(function (t) {
         t.executeSql('SELECT ID, FNAMES, LNAMES , PHONE, EMAIL FROM CUSTOMERS WHERE ID = ?', [idMember], function (t, rs) {
             if (rs.rows.length > 0) {
@@ -194,10 +258,10 @@ function viewMember(idMember) {
                 integrante.phone = rs.rows.item(0).PHONE;
                 integrante.email = rs.rows.item(0).EMAIL;
                 $('#txt-id').val(rs.rows.item(0).ID);
-                $('#fname').val(rs.rows.item(0).FNAMES);
-                $('#lname').val(rs.rows.item(0).LNAMES);
-                $('#phone').val(rs.rows.item(0).PHONE);
-                $('#email').val(rs.rows.item(0).EMAIL);
+                $('#fname').html(rs.rows.item(0).FNAMES);
+                $('#lname').html(rs.rows.item(0).LNAMES);
+                $('#phone').html(rs.rows.item(0).PHONE);
+                $('#email').html(rs.rows.item(0).EMAIL);
               //console.log($(this).attr([id]));
             }
         }, error);
@@ -238,7 +302,14 @@ function removeMember(idMember) {
     });*/
 }
 
-
+function savePO(integrante) {
+    db.transaction(function (tx) {
+        tx.executeSql('INSERT INTO CUSTOMERS(ID, FNAMES, LNAMES, PHONE, EMAIL) VALUES(?, ?, ?,?,?)', [integrante.id, integrante.fname, integrante.lname, integrante.phone, integrante.email]);
+    }, error, function () {
+        alert("Item Saved.");
+        $(".close").trigger();
+    });
+}
 
 
 ////////////////////////////////////////////////////////////////////
@@ -251,3 +322,6 @@ var error = function (err) {
 var exito = function () {
     console.info("Tabla created...");
 };
+
+
+

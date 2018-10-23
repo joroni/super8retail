@@ -228,27 +228,28 @@
  
 
   <!-- Modal: modalCart -->
-  <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <!-- Modal: modalCart -->
+   <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <!--Header-->
         <div class="modal-header">
+           <!-- Brand -->
+        <a class="navbar-brand waves-effects backtoprev" href="#">
+            <i aria-hidden="true" class="material-icons fa-2x">chevron_left</i>
+          </a>
+  
+          <h4 class="modal-title hidden" id="myModalLabel">Your Cart</h4>
+          <!--button type="button" class="close" data-dismiss="modal" aria-label="Close">
            
-            <button type="button" class="close navbar-brand waves-effects" data-dismiss="modal" aria-label="Close">
-               <!-- <span aria-hidden="true">×</span>-->
-               <i class="material-icons fa-2x">chevron_left</i>
-              </button>
-          <h5 class="modal-title hidden" id="myModalLabel">YOUR CART</h5>
+       
           
+          </button>--> 
         </div>
         <!--Body-->
         <div class="modal-body pt-0">
           <div class="row">
-          <!-- <a class="cart-icon">
-                            <span id="totalItems">0</span>
-                           
-                        </a>
-                        <div class="cart"></div>-->
+       
           <table class="table  table-hover">
             <thead class="hidden">
               <tr>
@@ -259,20 +260,20 @@
               </tr>
             </thead>
             <tbody class="cart">
-            
+             
             </tbody>
           </table>
         </div>
         </div>
         <!--Footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-primary hidden" data-dismiss="modal">Close</button>
-          <button class="btn 
-           btn-success">Checkout</button>
+          <button type="button" class="btn btn-success btn-checkout">Checkout</button>
+          <button type="button" class="btn btn-danger btn-close" data-dismiss="modal">Save</button>
+         
         </div>
       </div>
     </div>
-
+    </div>
   <!-- Modal: modalCart -->
    <!-- SCRIPTS -->
   <!-- JQuery -->
@@ -293,7 +294,9 @@
   <script src="js/cart.js"></script>
   <script src="vendor/csstricks/assets/js/jquery.smoothState.min.js"></script>
   <script src="vendor/csstricks/assets/js/main.js"></script>
+  <script type="text/javascript" src="js/cart.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/customer-list.js"></script>
   <!-- Initializations -->
   <script type="text/javascript">
     // Animations initialization

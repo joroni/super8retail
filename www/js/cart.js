@@ -63,6 +63,7 @@ var app = window.app || {},
 					email: '',
 					smname: '',
 					timestamp: '',
+					ponumber:'',
 					total: ''
 				},
 				{
@@ -85,6 +86,7 @@ var app = window.app || {},
 					email: '',
 					smname: '',
 					timestamp: '',
+					ponumber:'',
 					total: ''
 				},
 				{
@@ -107,6 +109,7 @@ var app = window.app || {},
 					email: '',
 					smname: '',
 					timestamp: '',
+					ponumber:'',
 					total: ''
 				},
 				{
@@ -129,6 +132,7 @@ var app = window.app || {},
 					email: '',
 					smname: '',
 					timestamp: '',
+					ponumber:'',
 					total: ''
 				},
 				{
@@ -151,6 +155,7 @@ var app = window.app || {},
 					email: '',
 					smname: '',
 					timestamp: '',
+					ponumber:'',
 					total: ''
 				},
 				{
@@ -173,6 +178,7 @@ var app = window.app || {},
 					email: '',
 					smname: '',
 					timestamp: '',
+					ponumber:'',
 					total: ''
 				}
 			],
@@ -247,7 +253,7 @@ var app = window.app || {},
 		if (!localStorage.getItem("idMember")) {
 
 			alert("Please select a customer.");
-			window.location.href="customer-select.html"
+			window.location.href="customer-select.html";
 			return false;
 		} else {
 			console.log("continue shopping");
@@ -281,15 +287,18 @@ var app = window.app || {},
 							producto.img,
 							producto.stock,
 							producto.oldprice,
+							
+							producto.notes,
+							
 							producto.cname=localStorage.getItem("idMember"),
-							producto.smname=localStorage.getItem("idSalesMngr"),
-							producto.total=localStorage.getItem("grndTotal"),
 							producto.check="notsync",
 							producto.select,
-							producto.notes,
 							producto.email,
-							producto.timestamp)
-
+							producto.smname=localStorage.getItem("idSalesMngr"),
+							producto.timestamp,
+							producto.ponumber,
+							producto.total=localStorage.getItem("grndTotal")
+							)
 
 						l.stop();
 						console.log(parseInt(cant))
@@ -309,7 +318,7 @@ var app = window.app || {},
 	}
 }
 
-	app.searchProd = function (cart, id, sku, cant, name, price, img, available, oldprice, cname, smname, total, check, select, notes, email, timestamp) {
+	app.searchProd = function (cart, id, sku, cant, name, price, img, available, oldprice, cname, smname, check, select, notes, email, timestamp, total, ponumber) {
 		//si le pasamos un valor negativo a la cantidad, se descuenta del carrito
 		var curProd = _.find(cart.items, {
 			'id': id
@@ -336,12 +345,13 @@ var app = window.app || {},
 				oldprice: oldprice,
 				cname: cname,
 				smname: smname,
-				total: total,
 				check: check,
 				select: select,
 				notes: notes,
 				email: email,
-				timestamp: timestamp
+				timestamp: timestamp,
+				total: localStorage.getItem("grndTotal"),
+				ponumber:ponumber,
 			}
 			cart.items.push(prod)
 
@@ -456,8 +466,11 @@ var app = window.app || {},
 		var cart = (JSON.parse(localStorage.getItem('cart')) != null) ? JSON.parse(localStorage.getItem('cart')) : {
 			items: []
 		};
+
+		localStorage.setItem("purchaseorder", JSON.stringify(cart));
+		var grandtotal = localStorage.getItem("grndTotal");
 		//var statics = '<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="upload" value="1"><input type="hidden" name="currency_code" value="USD" /><input type="hidden" name="business" value="' + business_paypal + '">',
-		var statics = '<form method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="upload" value="1"><input type="hidden" name="currency_code" value="USD" /><input type="hidden" name="business" value="">',
+		var statics = '<form action="/" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="upload" value="1"><input type="hidden" name="currency_code" value="PHP" /><input type="hidden" name="business" value="SUPER 8"><input type="hidden" name="grandtotal" id="grandtotal" value="'+grandtotal+'">',
 			dinamic = '',
 			wrapper = $('#submitForm')
 
@@ -468,13 +481,14 @@ var app = window.app || {},
 			_.forEach(cart.items, function (prod, key) {
 				dinamic += '<input type="hidden" name="item_name_' + i + '" value="' + prod.name + '">'
 				dinamic += '<input type="hidden" name="amount_' + i + '" value="' + prod.price + '">'
+				dinamic += '<input type="hidden" name="iuem_sku_' + i + '" value="' + prod.sku + '">'
 				dinamic += '<input type="hidden" name="item_number_' + i + '" value="' + prod.id + '" />'
 				dinamic += '<input type="hidden" name="quantity_' + i + '" value="' + prod.cant + '" />'
-			//	dinamic += '<input type="hidden" name="total' + i + '" value="' + prod.total + '" />' // added by jrn
+				dinamic += '<input type="hidden" id="grndTotal" name="total_' + i + '" value="' + grandtotal + '" />' // added by jrn
 				i++;
 			})
 
-			statics += dinamic + '<button type="submit" class="pay btn btn-success">Submit  <i class="ion-chevron-right"></i></button></form>'
+			statics += dinamic + '<button type="submit" class="pay btn btn-success">Submit<i class="ion-chevron-right"></i></button></form>'
 
 			wrapper.html(statics)
 		}

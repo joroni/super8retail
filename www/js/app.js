@@ -2,34 +2,34 @@ var backtoprev = $(".backtoprev"),
     btnlogin = $("#btnLogin"),
     btnregister = $("#btnRegister"),
     btncheckout = $(".btn-checkout");
-    activeSKU = sessionStorage.getItem("ThisSKU"),
+activeSKU = sessionStorage.getItem("ThisSKU"),
     currency = localStorage.getItem("myCurrency"),
-  
 
 
-function showQuantity() {
-    var thisitem = $(".btn-toggle");
-    var quantty = thisitem.closest("input");
 
-    thisitem.click(function(){
-        $(this).toggleClass("hidden");
-        $(this).siblings().toggleClass("hidden");
-        alert(JSON.stringify(quantty));
-     
-        quantty.each(function () {
-           
-       /* if (quantty >= 0) {
-          
-        } else {
-            $(".btn-toggle").hide();
-            $(this).siblings().removeClass("hidden");
-            $(".btn-toggle").show();
-            $(this).siblings().addClass("hidden");
-        }*/
-    });
+    function showQuantity() {
+        var thisitem = $(".btn-toggle");
+        var quantty = thisitem.closest("input");
 
-});
-}
+        thisitem.click(function () {
+            $(this).toggleClass("hidden");
+            $(this).siblings().toggleClass("hidden");
+            alert(JSON.stringify(quantty));
+
+            quantty.each(function () {
+
+                /* if (quantty >= 0) {
+                   
+                 } else {
+                     $(".btn-toggle").hide();
+                     $(this).siblings().removeClass("hidden");
+                     $(".btn-toggle").show();
+                     $(this).siblings().addClass("hidden");
+                 }*/
+            });
+
+        });
+    }
 
 // showQuantity();
 backtoprev.click(function () {
@@ -121,10 +121,10 @@ btnregister.click(function () {
 });
 
 
-btncheckout.click(function(){
-  //  window.location.href = "customer-information.html";
+btncheckout.click(function () {
+  //  alert("checkout");
+    //  window.location.href = "customer-information.html";
 })
-
 
 
 
@@ -132,68 +132,34 @@ btncheckout.click(function(){
 
 function showOrders() {
     // alert("orders");
-     var myObj, i, items = "";
-     myObj = {
-         "name": "John",
-         "age": 30,
-         "menuitems": [{
-            "id": 1,
-            "cant": 1,
-            "name": "Denim Shirt",
-            "price": 299,
-            "img": "img/products/12.jpg",
-            "available": 4,
-            "oldprice": "",
-            "cname": "JR0001",
-            "check": "yes",
-            "select": "none",
-            "notes": "BPJR10191801",
-            "email": "",
-            "smname":"BP00001",
-            "timestamp": "1539914136743",
-            "total":"1179"
-        }, {
-            "id": 5,
-            "cant": 2,
-            "name": "Gingen Strong Ginger Formula Tea",
-            "price": 440,
-            "img": "img/products/tea.jpg",
-            "available": 20,
-            "oldprice": "",
-            "cname": "JR0001",
-            "check": "yes",
-            "select": "none",
-            "notes": "BPJR10191801",
-            "email": "",
-            "smname":"BP00001",
-            "timestamp": "1539914136743",
-            "total":"1179"
-        }
-         ]
-     }
-     for (i in myObj.menuitems) {
+    var myObj, i, item = "";
+    var po = JSON.parse(localStorage.getItem("purchaseorder"));
+    //  var po = localStorage.getItem("purchaseorder");
+    console.log(po);
+    myObj = po;
+    for (i in myObj.items) {
 
-        items += '<a href="' + myObj.menuitems[i].name + '" class="list-group-item list-group-item-action flex-column align-items-start active">'
-        items += '<div class="d-flex w-100 justify-content-between">'
-        items +=  '<h5 class="mb-2 h5">'+ myObj.menuitems[i].notes + '</h5>'
-        items +=  '<small>Not Synced</small>'
-        items +=  '</div>'
-        items +=  '<p class="mb-2">'+ myObj.menuitems[i].total + '</p>'
-        items +=  '</a>';
-       //  items += '<li class="nav-item"><a class="nav-link waves-effect" href="' + myObj.menuitems[i].url + '">' + myObj.menuitems[i].notes + '</li>';
-         /* for (j in myObj.menuitems[i].models) {
-              items += myObj.menuitems[i].models[j] + "<li class='hidden'>";
-          }*/
-     }
- 
-     $("#mainOrders").html(items);
- 
- 
- }
+        item += '<a href="product-page.html" onclick=getSKU("' + myObj.items[i].sku + '") data-sku="' +  myObj.items[i].sku + '" class="list-group-item list-group-item-action flex-column align-items-start">'
+        item += '<div class="d-flex w-100 justify-content-between">'
+        item += '<h5 class="mb-2 h5">' + myObj.items[i].notes + '</h5>'
+        item += '<small class="order-status">Not Synced</small>'
+        item += '</div>'
+        item += '<p class="mb-2">' + myObj.items[i].cname + '</p>'
+        item += '</a>';
+        //  items += '<li class="nav-item"><a class="nav-link waves-effect" href="' + myObj.menuitems[i].url + '">' + myObj.menuitems[i].notes + '</li>';
+        /* for (j in myObj.menuitems[i].models) {
+             items += myObj.menuitems[i].models[j] + "<li class='hidden'>";
+         }*/
+    }
+
+    $("#mainOrders").html(item);
+
+
+}
 
 
 function showMenu() {
-   // alert("orders");
+    // alert("orders");
     var myObj, i, j, items = "";
     myObj = {
         "name": "John",
@@ -263,27 +229,25 @@ function productsPage() {
     oldpricing = '';
     if (product) {
         var oldprice = product.oldprice;
-        if(oldprice != 0 || oldprice != '') {
-            oldpricing = currency +''+oldprice;
-       }else {
-           oldpricing = '';
-       }
+        if (oldprice != 0 || oldprice != '') {
+            oldpricing = currency + '' + oldprice;
+        } else {
+            oldpricing = '';
+        }
 
         var cat = product.cat;
         var desc = product.desc;
         var id = product.id;
         var img = product.img;
         var name = product.name;
-     
-       
         var price = product.price;
         var size = product.size;
         var sku = product.sku;
         var state = product.state;
         var statecolor = product.statecolor;
         var stock = product.stock;
-       
-       // var currency = localStorage.getItem("myCurrency");
+
+        // var currency = localStorage.getItem("myCurrency");
 
         // console.log(cat+"|"+desc+"|"+id+"|"+img+"|"+name+"|"+price+"|"+size);
         $("#thisName").html(name);
@@ -293,21 +257,21 @@ function productsPage() {
             '</a>');
         $("#thisStock").html("In Stock: " + stock);
         $("#thisLead").html('<span class="mr-1">' +
-            '<del>' +oldpricing + '</del>' +
+            '<del>' + oldpricing + '</del>' +
             '</span>' +
             '<span>' + currency + '' + price + '</span>')
         $("#thisDesc").html(desc);
-   /* $("#thisAddCart").html('<input type="number" value="1" id="prod_'+id +'" readonly name="quant['+id+']"  aria-label="Search" class="form-control" style="width: 100px">'+
-    '<button class="btn btn-primary btn-md my-0 btn-number waves-effect  submit ladda-button waves-light" type="button"  onclick="app.addtoCart(' +id + ');">Add to cart'+
-      '<i class="fa fa-shopping-cart ml-1"></i>'+
-   '</button>');*/
+        /* $("#thisAddCart").html('<input type="number" value="1" id="prod_'+id +'" readonly name="quant['+id+']"  aria-label="Search" class="form-control" style="width: 100px">'+
+         '<button class="btn btn-primary btn-md my-0 btn-number waves-effect  submit ladda-button waves-light" type="button"  onclick="app.addtoCart(' +id + ');">Add to cart'+
+           '<i class="fa fa-shopping-cart ml-1"></i>'+
+        '</button>');*/
 
-   $("#footerBtns").html('<div class="row"><div class="btn-group" role="group" aria-label="Basic">'+
-   '<button type="button" class="btn btn-success manage-qtty btn-number h-40 waves-effect waves-light" onclick="app.updateItem('+id+','+stock+')" data-type="minus"><i class="material-icons">remove</i></button>'+
-   '<input type="number"id="prod_'+id+'" readonly="" name="quant['+id+']" class="form-control input-number quantity manage-qtty h-40" value="0" min="0" max="100" style="height:40px; width:80px;">'+
-   '<button type="button" class="btn btn-success btn-number waves-effect h-40 submit ladda-button waves-light prod-'+id+'" data-type="plus" data-style="slide-right" onclick="app.addtoCart('+id+');"><i class="material-icons">add</i></button>'+
-   //'<button type="button" class="btn btn-number waves-effect  submit ladda-button waves-light grey-borders btn-success prod-'+id+'" data-type="plus" data-style="slide-right" onclick="app.addtoCart('+id+');">Add to Cart</button>');
-    '<a class="btn btn-info waves-effect waves-light h-40 pl-4 pr-4" href="#" role="button" data-toggle="modal" data-target="#modalCart">View Cart</a></div></div>');
+        $("#footerBtns").html('<div class="row"><div class="btn-group" role="group" aria-label="Basic">' +
+            '<button type="button" class="btn btn-success manage-qtty btn-number h-40 waves-effect waves-light" onclick="app.updateItem(' + id + ',' + stock + ')" data-type="minus"><i class="material-icons">remove</i></button>' +
+            '<input type="number"id="prod_' + id + '" readonly="" name="quant[' + id + ']" class="form-control input-number quantity manage-qtty h-40" value="0" min="0" max="100" style="height:40px; width:80px;">' +
+            '<button type="button" class="btn btn-success btn-number waves-effect h-40 submit ladda-button waves-light prod-' + id + '" data-type="plus" data-style="slide-right" onclick="app.addtoCart(' + id + ');"><i class="material-icons">add</i></button>' +
+            //'<button type="button" class="btn btn-number waves-effect  submit ladda-button waves-light grey-borders btn-success prod-'+id+'" data-type="plus" data-style="slide-right" onclick="app.addtoCart('+id+');">Add to Cart</button>');
+            '<a class="btn btn-info waves-effect waves-light h-40 pl-4 pr-4" href="#" role="button" data-toggle="modal" data-target="#modalCart">View Cart</a></div></div>');
 
     }
 
@@ -316,12 +280,13 @@ function productsPage() {
 
 
 $(document).ready(function () {
-   // showQuantity();
+    // showQuantity();
     showMenu();
+    //addCustomer();
     showOrders();
     currency_icon = '₱';
     localStorage.setItem("myCurrency", currency_icon);
 
-    
+
 
 });
